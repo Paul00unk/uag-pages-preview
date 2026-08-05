@@ -56,9 +56,21 @@ seen", no "registration takes no card details", no unqualified "no deposit", no 
 UK-wide", no RICS, no on-site cataloguing. The internet surcharge is present, which it was not in any
 earlier draft.
 
-**Two yellow flags in the copy are Adrian's to resolve**, both logged in service-terms.md CONFLICTS:
+**No prices or rates appear on these pages, by design (Paul, 5 Aug: "leave the pricing aside for
+buyers").** The buyer page names the components of a winning bid and says where each rate is stated,
+which is the lot's Additional Fees tab, and defers the storage rate, the grace period, the
+administration fee, the interest rate and the debt recovery percentage to the auction terms. The one
+figure kept is VAT at 20%, because that is the statutory rate rather than a UAG price and it is what a
+buyer needs to sanity-check an invoice.
+
+That also keeps the pages maintenance-free if UAG changes a rate, and it keeps our internal queries
+out of client-facing copy. **The two questions Adrian still has to answer are tracked in
+`../service-terms.md` CONFLICTS, not on the page:**
 1. Buyer's premium rate. His clause 5.1 says 10 to 25%, his clause 18.7 says 15 to 20%.
 2. Collection grace period. His clause 12.5 says 7 days, his amendment note says 5.
+
+Both need resolving before a `/buyer-fees` page can be written (see `../missing-pages-plan.md`), but
+neither blocks these three pages now that no rate is quoted.
 
 ## Still to do before this goes near the live site
 
