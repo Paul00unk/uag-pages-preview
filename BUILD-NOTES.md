@@ -47,6 +47,19 @@ Current state, verified by script over all three pages including their meta desc
 | Buying | no | yes, correctly, and only here |
 | Selling | yes, correctly, and only here | no |
 
+## These are sales pages, not guides
+
+Paul, 5 Aug: *"don't say what we don't, avoid saying, this is a sales website pages not a guide"*.
+Adrian's 215 amendments demanded the disclaimers, but they were written for the ARTICLES. I had
+carried that register across and left 47 defensive sentences here. Now 3, and those are ordinary
+helpful sentences rather than disclaimers. Rule and the before/after table:
+`feedback_sales_pages_not_guides` memory.
+
+Every operational fact is still true, just stated as what we do. The safety check that matters after
+a rewrite like this: removing "we do not inspect" must not leave anything implying we do. Verified by
+script that no page claims inspection, grading, appraisal, finance checks or site attendance, and
+that the buyer page still makes the buyer's own looking explicit.
+
 ## Facts
 
 Every factual statement comes from `../service-terms.md`, which was built clause by clause from UAG's
