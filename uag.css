@@ -147,6 +147,27 @@
 .uag-step-b { font-size: 15px; line-height: 1.62; color: var(--uag-steel); margin: 0; max-width: 62ch; }
 .uag-dark .uag-step-b { color: #aeb7bf; }
 
+/* ---------- filling the row ----------
+   A full-width section whose content is one narrow column leaves the right half of the
+   row dead. Steps and long tick lists go two-up from 900px. Text-only sections put the
+   heading and its direct answer in a left column and the supporting prose in a right
+   column, so the measure stays readable and the row is used. */
+.uag-duo { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: clamp(24px,4.5vw,64px); align-items: start; }
+.uag-duo-l, .uag-duo-r { display: flex; flex-direction: column; min-width: 0; }
+.uag-duo-l { gap: 18px; }
+.uag-duo-r { gap: 16px; padding-top: 6px; }
+.uag-duo-l > *, .uag-duo-r > * { margin: 0; }
+.uag-duo-r .uag-body, .uag-duo-r .uag-note { max-width: none; }
+.uag-duo-l .uag-answer { max-width: none; }
+@media (min-width: 900px) {
+  .uag-steps-2 { grid-template-columns: 1fr 1fr; column-gap: clamp(34px,4.5vw,68px); row-gap: 30px; }
+  .uag-ticks-2 { display: grid; grid-template-columns: 1fr 1fr; column-gap: clamp(34px,4.5vw,68px); row-gap: 26px; }
+}
+@media (max-width: 900px) {
+  .uag-page .uag-duo { grid-template-columns: 1fr; }
+  .uag-page .uag-duo-r { padding-top: 0; }
+}
+
 /* ---------- trio ---------- */
 .uag-trio { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(24px,3.5vw,42px); }
 .uag-card { background: #fff; border: 1px solid var(--uag-line); padding: clamp(22px,2.6vw,32px); }
