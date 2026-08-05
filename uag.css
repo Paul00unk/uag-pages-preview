@@ -33,20 +33,6 @@
 }
 .uag-page *, .uag-page *::before, .uag-page *::after { box-sizing: border-box; }
 
-/* ---------- review chrome. NOT part of any paste block ---------- */
-.uag-review {
-  background: #1c2126; color: #cfd6dc; font-family: var(--uag-font);
-  font-size: 13px; line-height: 1.5; padding: 12px var(--uag-pad-x);
-}
-.uag-review-in { max-width: var(--uag-w); margin: 0 auto; display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: baseline; }
-.uag-review strong { color: #fff; font-weight: 600; }
-.uag-review-tag { border: 1px solid var(--uag-cyan); color: #8fd0e6; padding: 2px 8px; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
-.uag-nav { background: #000; padding: 0 var(--uag-pad-x); }
-.uag-nav-in { max-width: var(--uag-w); margin: 0 auto; display: flex; flex-wrap: wrap; gap: 4px 26px; align-items: center; }
-.uag-nav-brand { color: #fafafa; font-size: 15px; letter-spacing: -.02em; padding: 16px 0; margin-right: auto; }
-.uag-nav a { color: #aeb7bf; text-decoration: none; font-size: 14px; padding: 16px 0; border-bottom: 2px solid transparent; }
-.uag-nav a:hover, .uag-nav a:focus-visible { color: #fff; }
-.uag-nav a[aria-current="page"] { color: #fff; border-bottom-color: var(--uag-cyan); }
 .uag-flag { display: inline-block; background: #fff3cd; color: #7a5b00; border: 1px solid #e3cd85; font-size: 11px; letter-spacing: .04em; padding: 1px 6px; margin-left: 6px; white-space: nowrap; }
 
 /* ---------- sections ---------- */
@@ -212,27 +198,17 @@
 .uag-reg-t { font-size: 15.5px; margin: 0 0 4px; color: #fafafa; font-weight: 500; }
 .uag-reg-b { font-size: 14px; line-height: 1.55; color: var(--uag-steel-dim); margin: 0; }
 
-/* ---------- footer ---------- */
-.uag-foot { background: #12181d; color: var(--uag-steel-dim); padding: clamp(36px,4.5vw,58px) var(--uag-pad-x); font-size: 13.5px; line-height: 1.68; }
-.uag-foot-in { max-width: var(--uag-w); margin: 0 auto; }
-.uag-foot-cols { display: grid; grid-template-columns: repeat(3,1fr); gap: 30px; padding-bottom: 26px; border-bottom: 1px solid var(--uag-line-dark); margin-bottom: 22px; }
-.uag-foot h2 { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--uag-cyan); margin: 0 0 12px; font-weight: 500; }
-.uag-foot ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
-.uag-foot a { color: #cfd6dc; text-decoration: none; }
-.uag-foot a:hover, .uag-foot a:focus-visible { color: var(--uag-cyan); }
-.uag-foot-legal { max-width: 92ch; }
 
 /* ---------- responsive ---------- */
 @media (max-width: 900px) {
   .uag-page .uag-chooser, .uag-page .uag-split, .uag-page .uag-reg { grid-template-columns: 1fr; }
   .uag-page .uag-split-r .uag-media { order: 0; }
-  .uag-page .uag-trio, .uag-page .uag-cats, .uag-page .uag-foot-cols { grid-template-columns: 1fr; }
+  .uag-page .uag-trio, .uag-page .uag-cats { grid-template-columns: 1fr; }
   .uag-page .uag-media img { max-height: 340px; }
 }
 @media (max-width: 560px) {
   .uag-page .uag-reg-grid { grid-template-columns: 1fr; }
   .uag-page .uag-btn { display: block; text-align: center; }
-  .uag-page .uag-nav-brand { margin-right: 0; width: 100%; padding-bottom: 4px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .uag-page .uag-btn, .uag-page .uag-sign::before, .uag-page .uag-sign::after { transition: none; }
