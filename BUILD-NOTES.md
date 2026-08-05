@@ -24,6 +24,29 @@ comparable auctioneer we checked: Euro Auctions, Wilsons, SDL, Allsop, John Pye,
 the research are in the `feedback_two_sided_site_separation` memory. A seller is never shown the
 buyer's economics and a buyer is never shown the seller's.
 
+## The cross-audience rule, and the mistake I made against it
+
+Paul's rule: **the homepage cannot carry the seller information a buyer should not read.** Saying
+"sellers pay nothing" reassures a seller and warns a buyer in the same scroll. Full research in the
+`feedback_two_sided_site_separation` memory.
+
+**The first version of this build broke it.** The homepage carried the no-fees USP in four places:
+a chooser bullet, the seller section heading ("Selling with no fees and no commission"), its lede
+("Our sellers pay us nothing") and its first tick, plus a meta description that a buyer sees in
+search results. Fixed 5 Aug: the homepage seller door now sells on control, payment timing and reach,
+and links to `selling.html#cost` where the economics belong.
+
+**The test to apply, not "which audience is this page for":** does this sentence make the OTHER
+audience feel they are the one paying for it? Control, timing and reach pass. Price does not.
+
+Current state, verified by script over all three pages including their meta descriptions:
+
+| Page | Carries seller economics | Carries buyer charges |
+|---|---|---|
+| Homepage | no | no |
+| Buying | no | yes, correctly, and only here |
+| Selling | yes, correctly, and only here | no |
+
 ## Facts
 
 Every factual statement comes from `../service-terms.md`, which was built clause by clause from UAG's
