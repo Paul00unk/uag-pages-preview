@@ -104,6 +104,21 @@ out of client-facing copy. **The two questions Adrian still has to answer are tr
 Both need resolving before a `/buyer-fees` page can be written (see `../missing-pages-plan.md`), but
 neither blocks these three pages now that no rate is quoted.
 
+## OPEN: the GitHub Pages mirror is one build behind
+
+Commit `c87f43c` (the category photographs) is **pushed but not deployed**. GitHub Actions and Pages
+went into a major outage on 6 Aug at 15:22 UTC and two consecutive `pages-build-deployment` runs died
+at ~30 minutes to the outage's job timeout, not to anything in this repo. So
+`https://paul00unk.github.io/uag-pages-preview/` still serves the previous version: the five pages
+resolve but the eight `img/cat-*.webp` files 404 and the category grids render without pictures.
+
+**Fix, once GitHub is healthy:** `gh run rerun 31124394650`, or push any commit to `main`. Then check
+`img/cat-plant.webp` returns 200 before telling anyone the preview is current. The same push also
+carries the `catalogued` wording fix, whose own build was cancelled, so that is not live either.
+
+The Artifact is unaffected and is the review link to use in the meantime: every image is embedded in
+the page as a data URI.
+
 ## Still to do before this goes near the live site
 
 1. **Confirm the Squarespace plan.** Code Blocks need Business or higher. If UAG is on Personal, the
