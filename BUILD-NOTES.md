@@ -14,7 +14,7 @@ d18b4c1e, which predates Adrian's amendments and still contained three forbidden
 | `sell-with-us.html` | The seller PROCESS. What we need from you, six steps, what you can sell, valuations and reserves, timing, export. | 1,013 |
 | `asset-disposal.html` | Administrators, receivers and liquidators. What you get for the file, why an open auction stands up, how fast we can move, what stays out of the sale. | 1,246 |
 | `uag.css` | Shared stylesheet. Every class `uag-` prefixed, every rule scoped under a `uag-` ancestor, no bare element selectors, so it can go into Squarespace Code Blocks without leaking. |
-| `img/` | Seven images, webp plus jpg fallback, 1600px wide, 80 to 380KB each. |
+| `img/` | Fifteen images, webp plus jpg fallback. Seven section photos at 1600px; eight category-card photos at 900x562 (16:10), 44 to 104KB each. |
 | `credits.csv` | Photo credits with the QA note for each. |
 | `credits-rejected.txt` | What was rejected at QA and why. |
 | `build_artifact.py` | Combines all five pages into the single-file artifact: inlines the CSS, base64s the images, rewrites internal links to a JS page switcher. Re-run it after editing any page, then republish the same path. |
@@ -56,13 +56,15 @@ and links to `sell-with-us.html` and `why-sell-with-uag.html` where the economic
 **The test to apply, not "which audience is this page for":** does this sentence make the OTHER
 audience feel they are the one paying for it? Control, timing and reach pass. Price does not.
 
-Current state, verified by script over all three pages including their meta descriptions:
+Current state, verified by script over all five pages including their meta descriptions:
 
 | Page | Carries seller economics | Carries buyer charges |
 |---|---|---|
 | Homepage | no | no |
 | Buying | no | yes, correctly, and only here |
-| Selling | yes, correctly, and only here | no |
+| Why sell with UAG | yes, correctly | no |
+| Sell with us | yes, correctly | no |
+| Asset disposal | yes, correctly | no |
 
 ## These are sales pages, not guides
 
@@ -115,6 +117,26 @@ neither blocks these three pages now that no rate is quoted.
    do not exist yet, so both pages currently link to `/terms-and-conditions` and `/contact`.
 5. **Photography.** These are stock. If Paul gets the paid Freepik auction-room set, or UAG supplies
    photographs of real lots, swap them in: real stock beats stock photography on a page like this.
+   The category cards are the first place to swap, because a real UAG lot in a real UAG yard does
+   more work there than anywhere else on the site.
+
+## Photography sourcing rules learned on this build
+
+Every image came from Freepik via the Magnific MCP. **No Pexels images are on these pages** — Pexels
+was the source for the Batch 1-3 blog covers only, and those are a separate set.
+
+Four QA gates, all of which caught something real (the misses are logged in `credits-rejected.txt`):
+
+1. **`aiGenerated: false` is not trustworthy.** Check the `stock_get` `url` instead: `/free-photo/`
+   or `/premium-photo/` is a photograph, anything with `ai-image` is not. Four AI images passed the
+   flag on the first round.
+2. **The flag does not catch 3D renders either.** "Red delivery vans standing out from a fleet of
+   white vans" is CGI, declared as a photo, and only looking at it caught that. Look at every image.
+3. **Check it is not already on the site.** The obvious "Group of trucks parked in a row" result is
+   byte-for-byte the existing `trucks.webp`, same contributor and same shoot. Compare against `img/`
+   before downloading, not after.
+4. **Check the setting reads as the UK trade.** Rejected a row of blue MTZ tractors and a set of
+   tropical minibuses: both are real photographs of the right category and still wrong for UAG.
 6. **Tell Adrian about his own homepage.** Three forbidden claims are live on it right now (RICS
    surveyors, attending to catalogue, VAT-friendly export), and there is a stray `<h1>` in the contact
    block whose text is literally "H1", currently the only h1 on the page.

@@ -1,20 +1,26 @@
 #!/usr/bin/env python3
-"""Combine the three UAG pages into one self-contained artifact page.
+"""Combine the five UAG pages into one self-contained artifact page.
 
 Artifacts are single-page and the CSP blocks external hosts, so:
-  - the three pages become three <div class="uag-doc"> sections switched by the nav
+  - each page becomes a <div class="uag-doc"> section switched by the nav
   - the shared stylesheet is inlined
   - every image becomes a data: URI
-  - internal links (buying.html, selling.html#how) become switcher links
+  - internal links (buying.html, sell-with-us.html#how) become switcher links
 """
-import base64, re, pathlib
+import base64, re, pathlib, sys
 
 SRC = pathlib.Path("/Users/pauluncle/Desktop/Claude Projects/CLIENTS/UAG/pages/site")
 OUT = pathlib.Path("/private/tmp/claude-501/-Users-pauluncle-Desktop-Claude-Projects/59ef649b-583b-4814-9308-cb1db8cc67c4/scratchpad/uag-preview.html")
 
-PAGES = [("home", "index.html", "Home"),
-         ("buying", "buying.html", "Buying"),
-         ("selling", "selling.html", "Selling")]
+PAGES = [("home",     "index.html",            "Home"),
+         ("buying",   "buying.html",           "Buying"),
+         ("whysell",  "why-sell-with-uag.html","Why sell with UAG"),
+         ("sellwith", "sell-with-us.html",     "How selling works"),
+         ("disposal", "asset-disposal.html",   "Asset disposal")]
+
+missing = [f for _k, f, _l in PAGES if not (SRC / f).exists()]
+if missing:
+    sys.exit(f"ABORT: page files missing, PAGES is out of date: {missing}")
 
 # ---- images as data URIs ----
 data_uris = {}
@@ -50,7 +56,13 @@ def rewrite(inner: str) -> str:
             return m.group(0)
         extra = f' data-anchor="{anchor}"' if anchor else ''
         return f'href="#" data-goto="{key}"{extra}'
-    inner = re.sub(r'href="((?:index|buying|selling)\.html(?:#[\w-]+)?)"', link, inner)
+    # Built from PAGES so a new page can never be silently left as a dead link.
+    names = "|".join(re.escape(f[:-5]) for _k, f, _l in PAGES)
+    inner, n = re.subn(rf'href="((?:{names})\.html(?:#[\w-]+)?)"', link, inner)
+    # An unrewritten .html href would 404 inside the artifact, so fail loudly.
+    left = re.findall(r'href="([a-z0-9-]+\.html[^"]*)"', inner)
+    if left:
+        sys.exit(f"ABORT: internal links not rewritten, not in PAGES: {sorted(set(left))}")
     # same-page anchors stay as anchors, they work inside the active section
     return inner
 
@@ -97,8 +109,8 @@ html, body {{ margin: 0; padding: 0; background: #fafafa; }}
 <div class="uag-shell-bar">
   <div class="uag-shell-in">
     <span class="uag-shell-tag">Client review build</span>
-    <span><strong>Not live.</strong> Three pages: a homepage signpost, a page for buyers and a page for sellers. Use the tabs to move between them.</span>
-    <span>Every fact is taken from UAG's own terms and conditions. Two yellow flags mark figures the terms state inconsistently.</span>
+    <span><strong>Not live.</strong> Five pages: a homepage signpost, one for buyers, and three on the selling side. Use the tabs to move between them.</span>
+    <span>Every fact is taken from UAG's own terms and conditions. No rates are quoted, so nothing on these pages needs changing if a fee changes.</span>
   </div>
 </div>
 

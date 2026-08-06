@@ -163,11 +163,22 @@
 .uag-card-b { font-size: 15px; line-height: 1.62; color: var(--uag-steel); margin: 0; }
 .uag-dark .uag-card-b { color: #aeb7bf; }
 
-/* ---------- categories ---------- */
+/* ---------- categories ----------
+   Picture card. The hairline grid is the section's structure, so the cards carry
+   no border of their own: the 1px gap on a line-coloured background draws it. */
 .uag-cats { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--uag-line); border: 1px solid var(--uag-line); }
-.uag-cat { background: #fff; padding: 24px 22px; }
-.uag-cat-t { font-size: 16.5px; margin: 0 0 7px; font-weight: 500; }
-.uag-cat-b { font-size: 14.5px; line-height: 1.58; color: var(--uag-steel); margin: 0; }
+.uag-cat { background: #fff; display: flex; flex-direction: column; overflow: hidden; text-decoration: none; color: inherit; }
+.uag-cat-img { display: block; width: 100%; height: 190px; object-fit: cover; background: var(--uag-wash); transition: transform .45s ease; }
+.uag-cat-in { display: block; padding: 21px 22px 24px; }
+.uag-cat-t { display: block; font-size: 16.5px; margin: 0 0 7px; font-weight: 500; letter-spacing: -.01em; }
+.uag-cat-b { display: block; font-size: 14.5px; line-height: 1.58; color: var(--uag-steel); margin: 0; }
+/* Linked variant only: the title carries the affordance, matching .uag-inline. */
+a.uag-cat .uag-cat-t { color: var(--uag-cyan-deep); }
+a.uag-cat:hover .uag-cat-img, a.uag-cat:focus-visible .uag-cat-img { transform: scale(1.035); }
+a.uag-cat:hover .uag-cat-t, a.uag-cat:focus-visible .uag-cat-t { color: var(--uag-ink); }
+a.uag-cat:focus-visible { outline: 2px solid var(--uag-cyan); outline-offset: -2px; }
+/* .uag-body carries no top margin, so a paragraph after the grid needs the gap. */
+.uag-cats + .uag-body { margin-top: 26px; }
 
 /* ---------- table ---------- */
 .uag-tw { overflow-x: auto; margin: 0 0 18px; }
@@ -206,10 +217,17 @@
   .uag-page .uag-trio, .uag-page .uag-cats { grid-template-columns: 1fr; }
   .uag-page .uag-media img { max-height: 340px; }
 }
+/* Two up before dropping to one: a full-width picture card is too tall to scan. */
+@media (min-width: 561px) and (max-width: 900px) {
+  .uag-page .uag-cats { grid-template-columns: 1fr 1fr; }
+}
 @media (max-width: 560px) {
   .uag-page .uag-reg-grid { grid-template-columns: 1fr; }
   .uag-page .uag-btn { display: block; text-align: center; }
+  .uag-page .uag-cat-img { height: 168px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .uag-page .uag-btn, .uag-page .uag-sign::before, .uag-page .uag-sign::after { transition: none; }
+  .uag-page .uag-cat-img { transition: none; }
+  .uag-page a.uag-cat:hover .uag-cat-img { transform: none; }
 }
