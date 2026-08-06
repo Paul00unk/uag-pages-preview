@@ -6,16 +6,18 @@ d18b4c1e, which predates Adrian's amendments and still contained three forbidden
 
 ## What is here
 
-| File | Purpose |
-|---|---|
-| `index.html` | Homepage signpost. Two-panel chooser, short doors, one register section. No fees, commission or buyer's premium anywhere. |
-| `buying.html` | Buyer page. All buyer costs live here and only here. |
-| `selling.html` | Seller page, including the administrators and receivers section. |
+| File | Purpose | Words |
+|---|---|---|
+| `index.html` | Homepage signpost. Two-panel chooser, short doors, one register section. Carries NEITHER side's economics. | 899 |
+| `buying.html` | Buyer page. All buyer costs live here and only here. | 1,982 |
+| `why-sell-with-uag.html` | The seller ARGUMENT. No fees, stock stays put, paid before collection, who bids, auction vs dealer vs private sale, the record, who we sell for. | 1,157 |
+| `sell-with-us.html` | The seller PROCESS. What we need from you, six steps, what you can sell, valuations and reserves, timing, export. | 1,013 |
+| `asset-disposal.html` | Administrators, receivers and liquidators. What you get for the file, why an open auction stands up, how fast we can move, what stays out of the sale. | 1,246 |
 | `uag.css` | Shared stylesheet. Every class `uag-` prefixed, every rule scoped under a `uag-` ancestor, no bare element selectors, so it can go into Squarespace Code Blocks without leaking. |
 | `img/` | Seven images, webp plus jpg fallback, 1600px wide, 80 to 380KB each. |
 | `credits.csv` | Photo credits with the QA note for each. |
 | `credits-rejected.txt` | What was rejected at QA and why. |
-| `build_artifact.py` | Combines the three pages into the single-file artifact: inlines the CSS, base64s the images, rewrites internal links to a JS page switcher. Re-run it after editing any page, then republish the same path. |
+| `build_artifact.py` | Combines all five pages into the single-file artifact: inlines the CSS, base64s the images, rewrites internal links to a JS page switcher. Re-run it after editing any page, then republish the same path. |
 
 ## Why the structure is what it is
 
@@ -23,6 +25,21 @@ Buyer costs on a buyer page only, and buying split from selling by page, follows
 comparable auctioneer we checked: Euro Auctions, Wilsons, SDL, Allsop, John Pye, Manheim. The rule and
 the research are in the `feedback_two_sided_site_separation` memory. A seller is never shown the
 buyer's economics and a buyer is never shown the seller's.
+
+**Three seller pages, and the reason is conversion, not rank.** Paul's call 6 Aug, and Adrian named
+"Why sell with UAG" himself on the 30 July call. The keyword research in
+`../seller-keyword-research.md` found effectively no seller search demand in UAG's market:
+`sell plant machinery at auction uk` is already tracked at **msv 0, rank 0**, `sell plant and machinery`
+and `asset disposal insolvency` return **zero** ideas, and the volume behind generic "selling at
+auction" is residential property at £14 to £33 CPC. Sellers arrive from referrals, IP networks,
+outbound and Adrian's Facebook ad, so these pages are links you send someone and pages that close them
+when they land. The buyer side is where the roughly 2,500 monthly searches are.
+
+I originally recommended three pages partly on ranking grounds. The research killed that argument and
+I said so before building. Do not propose further seller pages on SEO grounds.
+
+`selling.html` is retired: it was the single combined seller page, and its content is now split
+across the three above.
 
 ## The cross-audience rule, and the mistake I made against it
 
@@ -34,7 +51,7 @@ Paul's rule: **the homepage cannot carry the seller information a buyer should n
 a chooser bullet, the seller section heading ("Selling with no fees and no commission"), its lede
 ("Our sellers pay us nothing") and its first tick, plus a meta description that a buyer sees in
 search results. Fixed 5 Aug: the homepage seller door now sells on control, payment timing and reach,
-and links to `selling.html#cost` where the economics belong.
+and links to `sell-with-us.html` and `why-sell-with-uag.html` where the economics belong.
 
 **The test to apply, not "which audience is this page for":** does this sentence make the OTHER
 audience feel they are the one paying for it? Control, timing and reach pass. Price does not.
