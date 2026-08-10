@@ -104,20 +104,19 @@ out of client-facing copy. **The two questions Adrian still has to answer are tr
 Both need resolving before a `/buyer-fees` page can be written (see `../missing-pages-plan.md`), but
 neither blocks these three pages now that no rate is quoted.
 
-## OPEN: the GitHub Pages mirror is one build behind
+## Deploy history, and the lesson about `gh run rerun`
 
-Commit `c87f43c` (the category photographs) is **pushed but not deployed**. GitHub Actions and Pages
-went into a major outage on 6 Aug at 15:22 UTC and two consecutive `pages-build-deployment` runs died
-at ~30 minutes to the outage's job timeout, not to anything in this repo. So
-`https://paul00unk.github.io/uag-pages-preview/` still serves the previous version: the five pages
-resolve but the eight `img/cat-*.webp` files 404 and the category grids render without pictures.
+**RESOLVED 10 Aug: everything below is live.** Five pages 200, eight `img/cat-*.webp` 200, retired
+`selling.html` 404, zero occurrences of "catalogu", six picture cards on the homepage.
 
-**Fix, once GitHub is healthy:** `gh run rerun 31124394650`, or push any commit to `main`. Then check
-`img/cat-plant.webp` returns 200 before telling anyone the preview is current. The same push also
-carries the `catalogued` wording fix, whose own build was cancelled, so that is not live either.
+What happened: GitHub Actions and Pages went into a major outage on 6 Aug at 15:22 UTC, and three
+`pages-build-deployment` runs died at 10 to 30 minutes on the outage's job timeout. Nothing was ever
+wrong with this repo. **The useful lesson: once GitHub recovered, `gh run rerun` on the old failed run
+sat queued for 22 minutes and never started. An empty commit (`git commit --allow-empty`) triggered a
+fresh run that deployed in 90 seconds.** Push a new commit rather than rerunning a stale one.
 
-The Artifact is unaffected and is the review link to use in the meantime: every image is embedded in
-the page as a data URI.
+Healthy builds take about 45 to 90 seconds, so anything past ~3 minutes means something is wrong.
+Successive pushes also cancel each other's in-flight runs, so push once and wait.
 
 ## Still to do before this goes near the live site
 
