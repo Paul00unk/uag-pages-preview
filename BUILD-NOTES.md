@@ -1,5 +1,14 @@
 # UAG three-page build: notes for the next session
 
+> **2026-08-14: Martha's amendment schedule applied to all five pages, pushed (f961da1) and
+> verified live.** Full fact changes recorded in `../../client-facts.md` (source M1) and
+> `../../service-terms.md`. Headline reversals: NO transport-quote offers anywhere (buyer arranges
+> collection and transport), no EORI-bidding claims, "no standard selling, listing, entry or
+> commission charges" replaces cost absolutes, viewing appears once (buying page, strictly by
+> prior appointment, testing agreed in advance), lots sold "as seen, where lying" stated on the
+> buying page, connected-person wording on asset-disposal, and every page now has exactly one H1.
+> The artifact copy (324bad40) has NOT been rebuilt; the client reviews on the GitHub preview.
+
 **Published for client review: https://claude.ai/code/artifact/324bad40-da7c-472f-bf26-14be8a31ad12**
 (Private until Paul shares it from the page's share menu. Supersedes the older draft-5 artifact
 d18b4c1e, which predates Adrian's amendments and still contained three forbidden claims.)
