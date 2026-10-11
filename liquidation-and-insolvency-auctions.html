@@ -5,14 +5,18 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>Liquidation Auctions UK | Insolvency and Bankruptcy Sales | Universal Auctions Group</title>
-<meta name="description" content="Bid online in trade-only liquidation and insolvency auctions. Plant, vehicles, machinery, catering, IT and stock from UK closures, administrations and receiverships.">
+<meta name="description" content="Trade-only liquidation and insolvency auctions online. Buy plant, vehicles, machinery and stock from UK closures, or sell a company's assets through us.">
 <link rel="stylesheet" href="uag.css">
 <style>
 /* Page-local layer for the category-page template. Every rule scoped under .uag-page. */
-/* Fact strip: four true statements about every sale, on the hero's bottom edge. */
-.uag-page .liq-facts{list-style:none;margin:clamp(34px,5vw,52px) 0 0;padding:22px 0 0;border-top:1px solid var(--uag-line);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px 28px;}
-.uag-page .liq-fact-t{display:block;font-size:15px;color:var(--uag-ink);font-weight:500;margin:0 0 3px;}
-.uag-page .liq-fact-b{display:block;font-size:13.5px;line-height:1.5;color:var(--uag-steel);}
+.uag-page .uag-ticks + .uag-body{margin-top:24px;}
+/* Two doors under the intro: one for buyers, one for sellers. */
+.uag-page .liq-doors{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.6vw,28px);margin-top:clamp(30px,4vw,46px);}
+.uag-page .liq-door{border:1px solid var(--uag-line);border-top:3px solid var(--uag-cyan);background:#fff;padding:clamp(22px,2.8vw,34px);display:flex;flex-direction:column;}
+.uag-page .liq-door-k{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--uag-cyan-deep);margin:0 0 12px;font-weight:500;}
+.uag-page .liq-door-t{font-size:clamp(19px,1.8vw,22px);letter-spacing:-.02em;line-height:1.3;margin:0 0 10px;}
+.uag-page .liq-door-b{font-size:15px;line-height:1.62;color:var(--uag-steel);margin:0 0 22px;}
+.uag-page .liq-door-links{margin-top:auto;display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px;}
 /* Picture tiles reuse .uag-cats; unlinked tiles keep ink titles. */
 .uag-page .uag-cat-img{height:210px;}
 .uag-page .uag-duo + .uag-cats{margin-top:clamp(24px,3vw,34px);}
@@ -33,7 +37,9 @@
 /* FAQ: heading column beside the accordions. */
 .uag-page .liq-faqgrid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.6fr);gap:clamp(28px,5vw,72px);align-items:start;}
 /* Guides as a two-column index rather than another card grid. */
-.uag-page .liq-guides{list-style:none;margin:clamp(24px,3vw,34px) 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(30px,5vw,64px);border-top:1px solid var(--uag-line);}
+.uag-page .liq-guidecols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,64px);margin-top:clamp(24px,3vw,34px);}
+.uag-page .liq-guidecol-k{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--uag-cyan-deep);margin:0 0 12px;font-weight:500;}
+.uag-page .liq-guides{list-style:none;margin:0;padding:0;border-top:1px solid var(--uag-line);}
 .uag-page .liq-guide{border-bottom:1px solid var(--uag-line);}
 .uag-page .liq-guide a{display:grid;grid-template-columns:1fr 22px;gap:16px;align-items:center;padding:18px 0;text-decoration:none;color:inherit;}
 .uag-page .liq-guide-t{display:block;font-size:16.5px;color:var(--uag-cyan-deep);letter-spacing:-.01em;margin:0 0 3px;}
@@ -48,12 +54,13 @@
 .uag-page .liq-close{border-top:1px solid var(--uag-line);}
 .uag-page .liq-catbtns a:hover,.uag-page .liq-catbtns a:focus-visible{border-color:var(--uag-cyan);color:var(--uag-cyan-deep);}
 @media (max-width:900px){
-  .uag-page .liq-facts,.uag-page .liq-panels{grid-template-columns:1fr 1fr;}
-  .uag-page .liq-faqgrid,.uag-page .liq-guides{grid-template-columns:1fr;}
+  .uag-page .liq-panels{grid-template-columns:1fr 1fr;}
+  .uag-page .liq-doors{grid-template-columns:1fr;}
+  .uag-page .liq-faqgrid,.uag-page .liq-guidecols{grid-template-columns:1fr;}
   .uag-page .liq-split-top .uag-media img{aspect-ratio:16/10;}
 }
 @media (max-width:560px){
-  .uag-page .liq-facts,.uag-page .liq-panels{grid-template-columns:1fr;}
+  .uag-page .liq-panels{grid-template-columns:1fr;}
 }
 @media (prefers-reduced-motion:reduce){.uag-page .liq-guide svg,.uag-page .liq-catbtns a{transition:none;}}
 </style>
@@ -62,23 +69,31 @@
 <div class="uag-page">
 
   <!-- ===== 1. INTRO ===== -->
-  <section class="uag-sec uag-light liq-intro" aria-labelledby="intro">
+  <section class="uag-sec uag-light" aria-labelledby="intro">
     <div class="uag-in">
       <div class="uag-duo">
         <div class="uag-duo-l">
           <p class="uag-eyebrow">Liquidation, administration and receivership sales</p>
-          <h2 class="uag-h2" id="intro">Buy business assets at trade-only liquidation auctions</h2>
+          <h2 class="uag-h2" id="intro">Buying or selling the assets of a closing business</h2>
         </div>
         <div class="uag-duo-r">
-          <p class="uag-answer">Universal Auctions Group runs trade-only liquidation auctions online, selling the assets of UK businesses in liquidation, administration, receivership or closing down. Plant, vehicles, machinery, catering equipment, IT and stock come up week to week, and you bid from anywhere in the UK or overseas.</p>
+          <p class="uag-answer">Universal Auctions Group runs trade-only liquidation auctions online for the assets of UK businesses in liquidation, administration, receivership or closing down. Trade buyers bid from anywhere in the UK or overseas, and the assets stay at the premises until they are sold and paid for.</p>
         </div>
       </div>
-      <ul class="liq-facts">
-        <li><span class="liq-fact-t">Trade-only</span><span class="liq-fact-b">You bid against other businesses</span></li>
-        <li><span class="liq-fact-t">Timed online auctions</span><span class="liq-fact-b">Bid from your desk or your phone</span></li>
-        <li><span class="liq-fact-t">Free to register</span><span class="liq-fact-b">One account for every sale</span></li>
-        <li><span class="liq-fact-t">Overseas buyers welcome</span><span class="liq-fact-b">Bid in the same sales as UK trade</span></li>
-      </ul>
+      <div class="liq-doors">
+        <div class="liq-door">
+          <p class="liq-door-k">Buying</p>
+          <p class="liq-door-t">Plant, vehicles, machinery and stock from UK closures</p>
+          <p class="liq-door-b">Sold in trade-only timed online auctions. Registration is free and you bid from your desk or your phone.</p>
+          <div class="liq-door-links"><a class="uag-btn" href="https://bid.universalauctions.group/auctions">View current lots</a><a class="uag-link" href="#how">How buying works</a></div>
+        </div>
+        <div class="liq-door">
+          <p class="liq-door-k">Selling</p>
+          <p class="liq-door-t">For liquidators, administrators, receivers, lenders and owners</p>
+          <p class="liq-door-b">Lots are sold from the premises to trade buyers across the UK and overseas, with a record of the sale for your file.</p>
+          <div class="liq-door-links"><a class="uag-btn uag-btn-ghost" href="https://www.universalauctionsgroup.com/contact">Talk to us about a sale</a><a class="uag-link" href="#sell">How selling works</a></div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -136,7 +151,6 @@
           <p class="uag-answer">Liquidators, administrators and receivers selling a company's assets, lenders recovering equipment, and owners closing a business down.</p>
           <p class="uag-body">Insolvency and bankruptcy sales bring stock to market that would otherwise never be offered for sale: the full working kit of a business, sold together and to a deadline. The seller and the capacity they sell in are shown in the auction information for each sale.</p>
           <p class="uag-body">Based in London, we sell for businesses across the UK, and every sale runs online, so the assets stay where they are until the buyer collects.</p>
-          <p class="uag-body">Appointed to realise assets yourself? Our page on <a class="uag-inline" href="https://www.universalauctionsgroup.com/asset-disposal">asset disposal for administrators and receivers</a> covers how we run a sale for you.</p>
         </div>
       </div>
     </div>
@@ -239,15 +253,50 @@
     </div>
   </section>
 
-  <!-- ===== 7. FAQ ===== -->
+  <!-- ===== 7. SELLING ===== -->
+  <section class="uag-sec uag-wash" aria-labelledby="sell">
+    <div class="uag-in">
+      <div class="uag-split">
+        <figure class="uag-media uag-figure">
+          <img src="img/liq-seller.webp" alt="A business owner working at the bench in his own workshop" width="1600" height="1000" loading="lazy">
+          <figcaption class="uag-cap">From one workshop to a whole site, the assets are sold where they stand.</figcaption>
+        </figure>
+        <div>
+          <p class="uag-eyebrow">For sellers</p>
+          <h2 class="uag-h2 uag-h2-sm" id="sell">Selling assets from a liquidation, administration or closure</h2>
+          <p class="uag-answer">We run online sales for liquidators, administrators, receivers, lenders and owners closing a business, and every lot is open to trade buyers across the UK and overseas.</p>
+          <ul class="uag-ticks">
+            <li class="uag-tick">
+              <span class="uag-tick-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#53a8c7" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+              <div><p class="uag-tick-t">Sold from the premises</p><p class="uag-tick-b">The assets stay where they are. Buyers collect by appointment once they have paid, so nothing has to be moved to an auction site first.</p></div>
+            </li>
+            <li class="uag-tick">
+              <span class="uag-tick-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#53a8c7" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+              <div><p class="uag-tick-t">Paid before anything leaves</p><p class="uag-tick-b">Collection is authorised only after the buyer has paid, and the seller is ordinarily paid within 24 hours of our receiving cleared funds.</p></div>
+            </li>
+            <li class="uag-tick">
+              <span class="uag-tick-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#53a8c7" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+              <div><p class="uag-tick-t">A record for the file</p><p class="uag-tick-b">Lot-by-lot results and the marketing and bidding record of the sale, within what confidentiality and data protection allow.</p></div>
+            </li>
+          </ul>
+          <p class="uag-body">How a sale is set up, and what it costs, are on our pages for sellers: <a class="uag-inline" href="https://www.universalauctionsgroup.com/why-sell-with-uag">why sell with us</a>, <a class="uag-inline" href="https://www.universalauctionsgroup.com/sell-with-us">how selling works</a> and <a class="uag-inline" href="https://www.universalauctionsgroup.com/asset-disposal">asset disposal for administrators and receivers</a>.</p>
+          <div class="uag-ctas">
+            <a class="uag-btn" href="https://www.universalauctionsgroup.com/contact">Talk to us about a sale</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 8. FAQ ===== -->
   <section class="uag-sec uag-light" aria-labelledby="faq">
     <div class="uag-in">
       <div class="liq-faqgrid">
         <div>
           <h2 class="uag-h2 uag-h2-sm" id="faq">Liquidation auction questions</h2>
-          <p class="uag-body">The questions trade buyers ask before their first insolvency sale. For anything else, send us the lot number.</p>
+          <p class="uag-body">The questions buyers and sellers ask before their first insolvency sale. For anything else, get in touch.</p>
           <div class="uag-ctas">
-            <a class="uag-btn uag-btn-ghost" href="https://www.universalauctionsgroup.com/contact">Ask about a lot</a>
+            <a class="uag-btn uag-btn-ghost" href="https://www.universalauctionsgroup.com/contact">Contact us</a>
           </div>
         </div>
         <div class="uag-faq">
@@ -272,6 +321,10 @@
             <p class="uag-faq-a">Universal Auctions Group acts as auctioneer and agent for the seller. The seller, and the capacity in which they sell, such as a liquidator or administrator, varies from sale to sale and is shown in the auction information where stated.</p>
           </details>
           <details>
+            <summary>Can I sell assets from a liquidation or closure through you?<span class="uag-sign" aria-hidden="true"></span></summary>
+            <p class="uag-faq-a">Yes. We run sales for liquidators, administrators, receivers, lenders and business owners. The assets are sold from the premises and buyers collect after paying. Talk to us about the assets and your timetable, or read our page on asset disposal for administrators and receivers.</p>
+          </details>
+          <details>
             <summary>Are liquidation lots sold with a warranty?<span class="uag-sign" aria-hidden="true"></span></summary>
             <p class="uag-faq-a">Lots are sold as seen, where lying. Descriptions and photographs come from the seller, so form your own view of each lot, and ask us for anything else you need while the lot is still open.</p>
           </details>
@@ -284,29 +337,34 @@
     </div>
   </section>
 
-  <!-- ===== 8. GUIDES ===== -->
+  <!-- ===== 9. GUIDES ===== -->
   <section class="uag-sec uag-wash" aria-labelledby="guides">
     <div class="uag-in">
-      <div class="uag-duo">
-        <div class="uag-duo-l">
-          <h2 class="uag-h2 uag-h2-sm" id="guides">Guides for liquidation buyers</h2>
+      <h2 class="uag-h2 uag-h2-sm" id="guides">Guides for buyers and sellers</h2>
+      <div class="liq-guidecols">
+        <div>
+          <p class="liq-guidecol-k">For buyers</p>
+          <ul class="liq-guides">
+          <li class="liq-guide"><a href="https://www.universalauctionsgroup.com/articles/liquidation-and-insolvency-auctions-explained-how-uk-business-assets-are-realised"><span><span class="liq-guide-t">Liquidation and insolvency auctions explained</span><span class="liq-guide-b">How UK business assets are realised, from appointment to sale</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#53a8c7" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+          <li class="liq-guide"><a href="https://www.universalauctionsgroup.com/articles/business-liquidators-vs-auctioneers-who-does-what-when-company-assets-must-be-sold"><span><span class="liq-guide-t">Business liquidators vs auctioneers</span><span class="liq-guide-b">Who does what when company assets have to be sold</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#53a8c7" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+          <li class="liq-guide"><a href="https://www.universalauctionsgroup.com/articles/it-and-electrical-equipment-at-auction-receiverships-and-office-closures"><span><span class="liq-guide-t">IT and electrical equipment from closures</span><span class="liq-guide-b">Buying from receiverships and office closures</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#53a8c7" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+          <li class="liq-guide"><a href="https://www.universalauctionsgroup.com/articles/buying-commercial-catering-equipment-from-business-closures-at-auction"><span><span class="liq-guide-t">Catering equipment from business closures</span><span class="liq-guide-b">What comes out of closed kitchens and what to check</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#53a8c7" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+          </ul>
         </div>
-        <div class="uag-duo-r">
-          <p class="uag-body">More on how insolvency sales work and what to look for, one subject at a time.</p>
+        <div>
+          <p class="liq-guidecol-k">For sellers</p>
+          <ul class="liq-guides">
+          <li class="liq-guide"><a href="https://www.universalauctionsgroup.com/articles/asset-disposal-in-administration-and-receivership-the-sellers-process"><span><span class="liq-guide-t">Asset disposal in administration and receivership</span><span class="liq-guide-b">The seller's process, step by step</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#53a8c7" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+          <li class="liq-guide"><a href="https://www.universalauctionsgroup.com/articles/selling-business-equipment-at-auction-a-guide-for-owners-administrators-and-ips"><span><span class="liq-guide-t">Selling business equipment at auction</span><span class="liq-guide-b">For owners, administrators and insolvency practitioners</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#53a8c7" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+          <li class="liq-guide"><a href="https://www.universalauctionsgroup.com/articles/asset-disposal-at-auction-selling-surplus-plant-and-machinery"><span><span class="liq-guide-t">Selling surplus plant and machinery</span><span class="liq-guide-b">Asset disposal at auction for contractors and hire firms</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#53a8c7" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+          <li class="liq-guide"><a href="https://www.universalauctionsgroup.com/articles/factory-clearance-and-equipment-disposition-for-solvent-businesses"><span><span class="liq-guide-t">Factory clearance for solvent businesses</span><span class="liq-guide-b">Clearing equipment when a site closes or moves</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#53a8c7" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+          </ul>
         </div>
       </div>
-      <ul class="liq-guides">
-        <li class="liq-guide"><a href="https://www.universalauctionsgroup.com/articles/liquidation-and-insolvency-auctions-explained-how-uk-business-assets-are-realised"><span><span class="liq-guide-t">Liquidation and insolvency auctions explained</span><span class="liq-guide-b">How UK business assets are realised, from appointment to sale</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#53a8c7" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-        <li class="liq-guide"><a href="https://www.universalauctionsgroup.com/articles/business-liquidators-vs-auctioneers-who-does-what-when-company-assets-must-be-sold"><span><span class="liq-guide-t">Business liquidators vs auctioneers</span><span class="liq-guide-b">Who does what when company assets have to be sold</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#53a8c7" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-        <li class="liq-guide"><a href="https://www.universalauctionsgroup.com/articles/it-and-electrical-equipment-at-auction-receiverships-and-office-closures"><span><span class="liq-guide-t">IT and electrical equipment from closures</span><span class="liq-guide-b">Buying from receiverships and office closures</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#53a8c7" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-        <li class="liq-guide"><a href="https://www.universalauctionsgroup.com/articles/buying-commercial-catering-equipment-from-business-closures-at-auction"><span><span class="liq-guide-t">Catering equipment from business closures</span><span class="liq-guide-b">What comes out of closed kitchens and what to check</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#53a8c7" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-        <li class="liq-guide"><a href="https://www.universalauctionsgroup.com/articles/repossessed-and-finance-recovered-plant-and-machinery-at-auction-in-the-uk"><span><span class="liq-guide-t">Repossessed and finance-recovered plant</span><span class="liq-guide-b">Buying machinery recovered by lenders</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#53a8c7" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-        <li class="liq-guide"><a href="https://www.universalauctionsgroup.com/articles/buying-repossessed-and-receivership-farm-machinery-at-auction-in-the-uk"><span><span class="liq-guide-t">Receivership farm machinery</span><span class="liq-guide-b">Tractors and implements from repossessions and receiverships</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#53a8c7" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-      </ul>
     </div>
   </section>
 
-  <!-- ===== 9. START ===== -->
+  <!-- ===== 10. START ===== -->
   <section class="uag-sec uag-light liq-close" aria-labelledby="start">
     <div class="uag-in">
       <div class="uag-duo">
@@ -327,6 +385,7 @@
             <li><a href="https://www.universalauctionsgroup.com/agricultural-machinery-auctions">Agricultural machinery</a></li>
             <li><a href="https://www.universalauctionsgroup.com/catering-equipment-auctions">Catering equipment</a></li>
           </ul>
+          <p class="uag-body">Selling the assets of a closing business? <a class="uag-inline" href="https://www.universalauctionsgroup.com/contact">Talk to us about a sale</a>.</p>
           <p class="uag-note">Every sale is governed by the <a class="uag-inline" href="https://www.universalauctionsgroup.com/terms-and-conditions">auction terms and conditions</a>.</p>
         </div>
       </div>
