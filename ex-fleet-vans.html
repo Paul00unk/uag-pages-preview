@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Ex-Fleet Van Auctions UK | Universal Auctions Group</title>
+<meta name="description" content="Trade-only ex-fleet and ex-lease van auctions online. Bid on panel vans, Lutons, crew vans and dropsides from UK vendors, or sell your vans through us.">
+<link rel="stylesheet" href="uag.css">
+/* Page-local layer for the category-page template. Every rule scoped under .uag-page. */
+.uag-page .uag-ticks + .uag-body{margin-top:24px;}
+/* Two doors under the intro: one for buyers, one for sellers. */
+.uag-page .liq-doors{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.6vw,28px);margin-top:clamp(30px,4vw,46px);}
+.uag-page .liq-door{border:1px solid var(--uag-line);border-top:3px solid var(--uag-cyan);background:#fff;padding:clamp(22px,2.8vw,34px);display:flex;flex-direction:column;}
+.uag-page .liq-door-k{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--uag-cyan-deep);margin:0 0 12px;font-weight:500;}
+.uag-page .liq-door-t{font-size:clamp(19px,1.8vw,22px);letter-spacing:-.02em;line-height:1.3;margin:0 0 10px;}
+.uag-page .liq-door-b{font-size:15px;line-height:1.62;color:var(--uag-steel);margin:0 0 22px;}
+.uag-page .liq-door-links{margin-top:auto;display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px;}
+/* Picture tiles reuse .uag-cats; unlinked tiles keep ink titles. */
+.uag-page .uag-cat-img{height:210px;}
+.uag-page .uag-duo + .uag-cats{margin-top:clamp(24px,3vw,34px);}
+/* Full-bleed background section. */
+.uag-page .liq-bgsec{position:relative;isolation:isolate;overflow:hidden;background:#000;color:#fafafa;padding-top:clamp(80px,10vw,140px);padding-bottom:clamp(64px,8vw,110px);}
+.uag-page .liq-bgsec-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;}
+.uag-page .liq-bgsec::after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.70) 0%,rgba(0,0,0,.76) 55%,rgba(0,0,0,.9) 100%);}
+.uag-page .liq-bgsec .uag-h2,.uag-page .liq-bgsec .uag-answer{color:#fafafa;}
+.uag-page .liq-panels{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:rgba(250,250,250,.16);border:1px solid rgba(250,250,250,.16);margin-top:clamp(28px,4vw,44px);}
+.uag-page .liq-panel{background:rgba(8,12,15,.74);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);padding:clamp(22px,2.4vw,30px);}
+.uag-page .liq-panel-n{display:block;font-size:12px;letter-spacing:.16em;color:var(--uag-cyan);margin:0 0 14px;}
+.uag-page .liq-panel-t{font-size:17px;font-weight:500;color:#fafafa;margin:0 0 8px;letter-spacing:-.01em;}
+.uag-page .liq-panel-b{font-size:14.5px;line-height:1.6;color:#c3cbd2;margin:0;}
+/* Split with stacked steps beside a tall photo. */
+.uag-page .liq-split-top{align-items:start;}
+.uag-page .liq-split-top .uag-media img{max-height:none;aspect-ratio:4/5;}
+.uag-page .liq-steps{margin-top:8px;}
+/* FAQ: heading column beside the accordions. */
+.uag-page .liq-faqgrid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.6fr);gap:clamp(28px,5vw,72px);align-items:start;}
+/* Guides as a two-column index rather than another card grid. */
+.uag-page .liq-guidecols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,64px);margin-top:clamp(24px,3vw,34px);}
+.uag-page .liq-guidecol-k{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--uag-cyan-deep);margin:0 0 12px;font-weight:500;}
+.uag-page .liq-guides{list-style:none;margin:0;padding:0;border-top:1px solid var(--uag-line);}
+.uag-page .liq-guide{border-bottom:1px solid var(--uag-line);}
+.uag-page .liq-guide a{display:grid;grid-template-columns:1fr 22px;gap:16px;align-items:center;padding:18px 0;text-decoration:none;color:inherit;}
+.uag-page .liq-guide-t{display:block;font-size:16.5px;color:var(--uag-cyan-deep);letter-spacing:-.01em;margin:0 0 3px;}
+.uag-page .liq-guide-b{display:block;font-size:14px;color:var(--uag-steel);line-height:1.5;}
+.uag-page .liq-guide svg{transition:transform .18s ease;}
+.uag-page .liq-guide a:hover .liq-guide-t,.uag-page .liq-guide a:focus-visible .liq-guide-t{color:var(--uag-ink);}
+.uag-page .liq-guide a:hover svg{transform:translateX(4px);}
+.uag-page .liq-guide a:focus-visible{outline:2px solid var(--uag-cyan);outline-offset:2px;}
+/* Closing band: categories as real buttons. */
+.uag-page .liq-catbtns{display:flex;flex-wrap:wrap;gap:10px;margin:0;padding:0;list-style:none;}
+.uag-page .liq-catbtns a{display:inline-block;padding:.7rem 1rem;font-size:14.5px;color:var(--uag-ink);text-decoration:none;border:1px solid var(--uag-line);background:#fff;transition:border-color .18s ease,color .18s ease;}
+.uag-page .liq-close{border-top:1px solid var(--uag-line);}
+.uag-page .liq-catbtns a:hover,.uag-page .liq-catbtns a:focus-visible{border-color:var(--uag-cyan);color:var(--uag-cyan-deep);}
+@media (max-width:900px){
+  .uag-page .liq-panels{grid-template-columns:1fr 1fr;}
+  .uag-page .liq-doors{grid-template-columns:1fr;}
+  .uag-page .liq-faqgrid,.uag-page .liq-guidecols{grid-template-columns:1fr;}
+  .uag-page .liq-split-top .uag-media img{aspect-ratio:16/10;}
+}
+@media (max-width:560px){
+  .uag-page .liq-panels{grid-template-columns:1fr;}
+}
+@media (prefers-reduced-motion:reduce){.uag-page .liq-guide svg,.uag-page .liq-catbtns a{transition:none;}}
+</style>
+</head>
+</head>
+<body>
+<div class="uag-page">
+
+  <!-- ===== 1. INTRO ===== -->
+  <section class="uag-sec uag-light" aria-labelledby="intro">
+    <div class="uag-in">
+      <div class="uag-duo">
+        <div class="uag-duo-l">
+          <p class="uag-eyebrow">Ex-fleet, ex-lease and business-use vans</p>
+          <h2 class="uag-h2" id="intro">Buying or selling ex-fleet vans at auction</h2>
+        </div>
+        <div class="uag-duo-r">
+          <p class="uag-answer">Universal Auctions Group runs trade-only ex-fleet van auctions online for panel vans, Luton vans, crew vans and other light commercials located across the UK. Trade buyers bid from anywhere in the UK or overseas, and each van stays where it is until it is sold and paid for.</p>
+        </div>
+      </div>
+      <div class="liq-doors">
+        <div class="liq-door">
+          <p class="liq-door-k">Buying</p>
+          <p class="liq-door-t">Panel vans, Lutons, crew vans, dropsides and small vans</p>
+          <p class="liq-door-b">Sold in trade-only timed online auctions, with the price set by open bidding. Registration is free and you bid from your desk or your phone.</p>
+          <div class="liq-door-links"><a class="uag-btn" href="https://bid.universalauctions.group/auctions">View current lots</a><a class="uag-link" href="#how">How buying works</a></div>
+        </div>
+        <div class="liq-door">
+          <p class="liq-door-k">Selling</p>
+          <p class="liq-door-t">For dealers, traders, businesses, lenders and administrators</p>
+          <p class="liq-door-b">Vans are sold from your premises to trade buyers across the UK and overseas, with a record of the sale for your file.</p>
+          <div class="liq-door-links"><a class="uag-btn uag-btn-ghost" href="https://www.universalauctionsgroup.com/contact">Talk to us about a sale</a><a class="uag-link" href="#sell">How selling works</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 2. WHAT COMES UP ===== -->
+  <section class="uag-sec uag-wash" aria-labelledby="stock">
+    <div class="uag-in">
+      <div class="uag-duo">
+        <div class="uag-duo-l">
+          <h2 class="uag-h2 uag-h2-sm" id="stock">What comes up at our ex-fleet van auctions</h2>
+        </div>
+        <div class="uag-duo-r">
+          <p class="uag-answer">Vans that have worked for companies, utilities, rental and leasing fleets, entered into auction by their current vendor. These are the body types buyers watch for.</p>
+        </div>
+      </div>
+      <div class="uag-cats">
+        <a class="uag-cat" href="https://www.universalauctionsgroup.com/articles/ex-fleet-vans-reading-history-mileage-and-condition-from-an-auction-listing">
+          <img class="uag-cat-img" src="img/fv-t-panel.webp" alt="A white high-roof panel van parked side-on" width="900" height="600" loading="lazy">
+          <span class="uag-cat-in"><span class="uag-cat-t">Panel vans</span><span class="uag-cat-b">Small, medium and large panel vans across the major platforms, from Transit and Sprinter to Vivaro, Crafter, Boxer, Ducato and Trafic.</span></span>
+        </a>
+        <div class="uag-cat">
+          <img class="uag-cat-img" src="img/fv-t-luton.webp" alt="A white box van with a cab air deflector parked at a roadside" width="900" height="600" loading="lazy">
+          <span class="uag-cat-in"><span class="uag-cat-t">Luton and box vans</span><span class="uag-cat-b">Luton and box vans, some with tail lifts, for removals, delivery and distribution work.</span></span>
+        </div>
+        <div class="uag-cat">
+          <img class="uag-cat-img" src="img/fv-t-crew.webp" alt="A white crew van with a windowed second row" width="900" height="600" loading="lazy">
+          <span class="uag-cat-in"><span class="uag-cat-t">Crew vans and double cabs</span><span class="uag-cat-b">Crew vans and double cabs that carry a team and their kit to the job.</span></span>
+        </div>
+        <div class="uag-cat">
+          <img class="uag-cat-img" src="img/fv-t-dropside.webp" alt="The dropside body of a white van loaded with a pallet, tarpaulin and hoses" width="900" height="600" loading="lazy">
+          <span class="uag-cat-in"><span class="uag-cat-t">Dropsides and tippers</span><span class="uag-cat-b">Dropside and tipper vans for building, groundworks and landscaping.</span></span>
+        </div>
+        <div class="uag-cat">
+          <img class="uag-cat-img" src="img/fv-t-small.webp" alt="A small white van parked beside old stone buildings" width="900" height="600" loading="lazy">
+          <span class="uag-cat-in"><span class="uag-cat-t">Small vans</span><span class="uag-cat-b">Car-derived and small vans for city, delivery and service work.</span></span>
+        </div>
+        <div class="uag-cat">
+          <img class="uag-cat-img" src="img/fv-t-loadspace.webp" alt="The empty load area of a van with both rear doors open and ply-lined door panels" width="900" height="600" loading="lazy">
+          <span class="uag-cat-in"><span class="uag-cat-t">Racking and conversions</span><span class="uag-cat-b">Vans with racking, ply-lining, refrigeration, or welfare and workshop conversions, listed where the vendor supplies the detail.</span></span>
+        </div>
+      </div>
+      <p class="uag-body">Looking for HGVs, pickups or specialist bodies? See our <a class="uag-inline" href="https://www.universalauctionsgroup.com/commercial-vehicle-auctions">commercial vehicle auctions</a>. Vans from closing businesses also come up in our <a class="uag-inline" href="https://www.universalauctionsgroup.com/liquidation-and-insolvency-auctions">liquidation and insolvency auctions</a>.</p>
+    </div>
+  </section>
+
+  <!-- ===== 3. WHERE IT COMES FROM ===== -->
+  <section class="uag-sec uag-light" aria-labelledby="source">
+    <div class="uag-in">
+      <div class="uag-split">
+        <figure class="uag-media uag-figure">
+          <img src="img/fv-source.webp" alt="A tradesman in red overalls loading toolboxes into the back of a white van" width="1600" height="1000" loading="lazy">
+          <figcaption class="uag-cap">Vans are sold from the yards and premises where they are kept.</figcaption>
+        </figure>
+        <div>
+          <h2 class="uag-h2 uag-h2-sm" id="source">Where the vans come from</h2>
+          <p class="uag-answer">Ex-fleet describes how a van was used before. The vans are entered by dealers, traders, businesses and other commercial vendors, and each listing states the provenance where it is known.</p>
+          <p class="uag-body">That is why the listing matters more than the label. Registration, mileage, MOT status, service history, number of keys, V5C status and fitted equipment are listed where the vendor supplies them, with photographs of the cab, bodywork and load area.</p>
+          <p class="uag-body">Ex-lease and contract hire returns come through as well, alongside vans from businesses replacing or reducing their own.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 4. WHY BUYERS USE THEM ===== -->
+  <section class="uag-sec liq-bgsec" aria-labelledby="why">
+    <img class="liq-bgsec-img" src="img/fv-bg.webp" alt="" aria-hidden="true" loading="lazy">
+    <div class="uag-in">
+      <p class="uag-eyebrow">For trade buyers</p>
+      <h2 class="uag-h2" id="why">Why traders and tradespeople buy ex-fleet vans at auction</h2>
+      <p class="uag-answer">Because working vans come up in numbers, the price is set by open bidding, and you buy from your desk.</p>
+      <div class="liq-panels">
+        <div class="liq-panel">
+          <span class="liq-panel-n">01</span>
+          <p class="liq-panel-t">Choice in one sale</p>
+          <p class="liq-panel-b">Several makes, sizes and body types can appear in the same auction, so you can compare like for like before you bid.</p>
+        </div>
+        <div class="liq-panel">
+          <span class="liq-panel-n">02</span>
+          <p class="liq-panel-t">The price is set by the bidding</p>
+          <p class="liq-panel-b">Every lot is open to every registered trade buyer, and you can see the bidding as it happens. There is no asking price to negotiate.</p>
+        </div>
+        <div class="liq-panel">
+          <span class="liq-panel-n">03</span>
+          <p class="liq-panel-t">History you can check</p>
+          <p class="liq-panel-b">Where the registration is listed, you can check the MOT history and DVLA record yourself before you place a bid.</p>
+        </div>
+        <div class="liq-panel">
+          <span class="liq-panel-n">04</span>
+          <p class="liq-panel-t">Trade-only, online, from anywhere</p>
+          <p class="liq-panel-b">You bid against other businesses, from your desk or your phone, wherever the van happens to be.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 5. HOW BUYING WORKS ===== -->
+  <section class="uag-sec uag-light" aria-labelledby="how">
+    <div class="uag-in">
+      <div class="uag-split liq-split-top">
+        <figure class="uag-media uag-figure">
+          <img src="img/fv-bidding.webp" alt="A man checking his phone in the driver&#x27;s seat of a van" width="1600" height="1000" loading="lazy">
+          <figcaption class="uag-cap">Every sale runs online, so you can bid between jobs.</figcaption>
+        </figure>
+        <div>
+          <h2 class="uag-h2 uag-h2-sm" id="how">How buying at an ex-fleet van auction works</h2>
+          <p class="uag-answer">Four steps, from registering to collecting what you have won.</p>
+          <ol class="uag-steps liq-steps">
+            <li class="uag-step">
+              <div>
+                <p class="uag-step-t">Register to bid</p>
+                <p class="uag-step-b">Registration is free. Manual approval and identification may be required before an account can bid, so register ahead of the sale you are watching.</p>
+              </div>
+            </li>
+            <li class="uag-step">
+              <div>
+                <p class="uag-step-t">Read the lot and set your maximum</p>
+                <p class="uag-step-b">Each lot carries the vendor's description and photographs, the van's location, its VAT treatment, and the buyer's premium on its Additional Fees tab. Add them up and decide your ceiling before the lot closes.</p>
+              </div>
+            </li>
+            <li class="uag-step">
+              <div>
+                <p class="uag-step-t">Bid in the timed online auction</p>
+                <p class="uag-step-b">Bidding normally remains open for several days, with the exact opening and closing times stated for each auction. In our current timed-auction format, a bid in the last ten minutes extends that lot by ten minutes, so nobody wins on the buzzer.</p>
+              </div>
+            </li>
+            <li class="uag-step">
+              <div>
+                <p class="uag-step-t">Pay and collect</p>
+                <p class="uag-step-b">We invoice you after the sale, payable in full by bank transfer within 24 hours. Once your payment clears we release the collection details, and you collect from the stated location by appointment.</p>
+              </div>
+            </li>
+          </ol>
+          <p class="uag-note">The full buying process, costs and collection are on the <a class="uag-inline" href="https://www.universalauctionsgroup.com/buying">buying page</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 6. BEFORE YOU BID ===== -->
+  <section class="uag-sec uag-dark" aria-labelledby="site">
+    <div class="uag-in">
+      <div class="uag-split uag-split-r">
+        <div>
+          <p class="uag-eyebrow">Before you bid</p>
+          <h2 class="uag-h2 uag-h2-sm" id="site">Check the history before you bid</h2>
+          <p class="uag-answer">A van's registration tells you more than any photograph. Do the checks first, and bid on what the van needs as well as what it is.</p>
+          <p class="uag-body">Check the official MOT history and DVLA record against the registration, compare recorded mileages with the odometer reading and service information supplied, and make your own finance, title and insurance-history enquiries. Look for signs of removed fleet equipment, check the keys and any fitted racking, and make sure the van suits any emissions zone you work in.</p>
+          <p class="uag-body">Allow for servicing, tyres, any repairs, transport and taxation in your maximum. Buyers are responsible for arranging collection and transport. Any delivery option specifically stated within a lot is provided by the seller and subject to separate agreement.</p>
+          <div class="uag-ctas">
+            <a class="uag-btn uag-btn-ghost" href="https://www.universalauctionsgroup.com/contact">Ask about a lot</a>
+          </div>
+        </div>
+        <figure class="uag-media uag-figure">
+          <img src="img/fv-collection.webp" alt="A key being handed over to a buyer" width="1600" height="1000" loading="lazy">
+          <figcaption class="uag-cap">Book the collection and the driver before the auction closes.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 7. SELLING ===== -->
+  <section class="uag-sec uag-wash" aria-labelledby="sell">
+    <div class="uag-in">
+      <div class="uag-split">
+        <figure class="uag-media uag-figure">
+          <img src="img/fv-seller.webp" alt="A trader with a tablet looking over vehicles lined up on a sales yard" width="1600" height="1000" loading="lazy">
+          <figcaption class="uag-cap">From one van to a yard of them, vans are sold where they are kept.</figcaption>
+        </figure>
+        <div>
+          <p class="uag-eyebrow">For sellers</p>
+          <h2 class="uag-h2 uag-h2-sm" id="sell">Selling vans through us</h2>
+          <p class="uag-answer">We run online sales for dealers, traders, businesses, lenders and administrators, and every van is open to trade buyers across the UK and overseas.</p>
+          <ul class="uag-ticks">
+            <li class="uag-tick">
+              <span class="uag-tick-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#53a8c7" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+              <div><p class="uag-tick-t">Sold from your premises</p><p class="uag-tick-b">Vans stay where they are. Buyers collect by appointment once they have paid, so nothing has to go to an auction site first.</p></div>
+            </li>
+            <li class="uag-tick">
+              <span class="uag-tick-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#53a8c7" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+              <div><p class="uag-tick-t">Paid before anything leaves</p><p class="uag-tick-b">Collection is authorised only after the buyer has paid, and the seller is ordinarily paid within 24 hours of our receiving cleared funds.</p></div>
+            </li>
+            <li class="uag-tick">
+              <span class="uag-tick-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#53a8c7" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+              <div><p class="uag-tick-t">A record for the file</p><p class="uag-tick-b">Lot-by-lot results and the marketing and bidding record of the sale, within what confidentiality and data protection allow.</p></div>
+            </li>
+          </ul>
+          <p class="uag-body">How a sale is set up, and what it costs, are on our pages for sellers: <a class="uag-inline" href="https://www.universalauctionsgroup.com/why-sell-with-uag">why sell with us</a>, <a class="uag-inline" href="https://www.universalauctionsgroup.com/sell-with-us">how selling works</a> and <a class="uag-inline" href="https://www.universalauctionsgroup.com/asset-disposal">asset disposal for administrators and receivers</a>.</p>
+          <div class="uag-ctas">
+            <a class="uag-btn" href="https://www.universalauctionsgroup.com/contact">Talk to us about a sale</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 8. FAQ ===== -->
+  <section class="uag-sec uag-light" aria-labelledby="faq">
+    <div class="uag-in">
+      <div class="liq-faqgrid">
+        <div>
+          <h2 class="uag-h2 uag-h2-sm" id="faq">Ex-fleet van auction questions</h2>
+          <p class="uag-body">The questions buyers and sellers ask before their first van sale. For anything else, get in touch.</p>
+          <div class="uag-ctas">
+            <a class="uag-btn uag-btn-ghost" href="https://www.universalauctionsgroup.com/contact">Contact us</a>
+          </div>
+        </div>
+        <div class="uag-faq">
+          <details>
+            <summary>What does ex-fleet mean?<span class="uag-sign" aria-hidden="true"></span></summary>
+            <p class="uag-faq-a">Ex-fleet describes a van's previous use, for example with a company, utility, rental or leasing fleet. It is not a condition grade or a guarantee of service history, and a van may have changed hands before it reaches auction, so take the provenance from each listing.</p>
+          </details>
+          <details>
+            <summary>Where can I buy ex-fleet vans without going through a dealer forecourt?<span class="uag-sign" aria-hidden="true"></span></summary>
+            <p class="uag-faq-a">At trade auctions. Universal Auctions Group runs trade-only timed online auctions of ex-fleet, ex-lease and business-use vans, so registered business buyers bid online and the price is set by open bidding.</p>
+          </details>
+          <details>
+            <summary>What is the difference between ex-fleet and ex-lease vans?<span class="uag-sign" aria-hidden="true"></span></summary>
+            <p class="uag-faq-a">Ex-lease vans have come back at the end of a contract hire or lease agreement. Ex-fleet is the wider label for vans that worked in a company, utility or rental fleet. Both come up in our auctions, and each listing states the provenance where it is known.</p>
+          </details>
+          <details>
+            <summary>What checks should I do before bidding on a van?<span class="uag-sign" aria-hidden="true"></span></summary>
+            <p class="uag-faq-a">Check the MOT history and DVLA record against the registration, compare the mileages, and make your own finance, title and insurance-history enquiries. Where a registration number is available, Universal Auctions Group carries out the vehicle data check described in our terms before the vehicle is listed. It is not a mechanical inspection, title guarantee or substitute for the buyer's own enquiries.</p>
+          </details>
+          <details>
+            <summary>What will a lot cost me on top of the hammer price?<span class="uag-sign" aria-hidden="true"></span></summary>
+            <p class="uag-faq-a">The buyer's premium, at the rate shown on the lot's Additional Fees tab, and VAT where it applies to that lot, which the lot description states. Collection and transport are yours to arrange, so allow for them in your maximum bid.</p>
+          </details>
+          <details>
+            <summary>How quickly do I have to pay and collect?<span class="uag-sign" aria-hidden="true"></span></summary>
+            <p class="uag-faq-a">Payment is due in full by bank transfer within 24 hours of the invoice. Collection is by appointment once your payment has cleared, within the period stated in that sale's terms. Have a driver and insurance in place before the lot closes.</p>
+          </details>
+          <details>
+            <summary>Can I sell vans through you?<span class="uag-sign" aria-hidden="true"></span></summary>
+            <p class="uag-faq-a">Yes, from one van to a yard of them. We sell for dealers, traders, businesses, lenders and administrators. Vans are sold from your premises and buyers collect after paying. Talk to us about the vans and your timetable.</p>
+          </details>
+          <details>
+            <summary>Are vans sold with a warranty?<span class="uag-sign" aria-hidden="true"></span></summary>
+            <p class="uag-faq-a">Lots are sold as seen, where lying. Descriptions and photographs come from the vendor, and mileage and history are not warranted unless the lot expressly says so, so form your own view of each van before you bid.</p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 9. GUIDES ===== -->
+  <section class="uag-sec uag-wash" aria-labelledby="guides">
+    <div class="uag-in">
+      <h2 class="uag-h2 uag-h2-sm" id="guides">Guides for buyers and sellers</h2>
+      <div class="liq-guidecols">
+        <div>
+          <p class="liq-guidecol-k">For buyers</p>
+          <ul class="liq-guides">
+          <li class="liq-guide"><a href="https://www.universalauctionsgroup.com/articles/ex-fleet-vans-reading-history-mileage-and-condition-from-an-auction-listing"><span><span class="liq-guide-t">Reading an ex-fleet van listing</span><span class="liq-guide-b">History, mileage and condition</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#53a8c7" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+          <li class="liq-guide"><a href="https://www.universalauctionsgroup.com/articles/ex-lease-vans-at-auction-how-contract-hire-returns-differ-from-ex-fleet"><span><span class="liq-guide-t">Ex-lease vans at auction</span><span class="liq-guide-b">How contract hire returns differ from ex-fleet</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#53a8c7" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+          <li class="liq-guide"><a href="https://www.universalauctionsgroup.com/articles/buying-commercial-vehicles-andex-fleet-vans-at-auction-whattrade-buyers-need-to-know"><span><span class="liq-guide-t">Buying commercial vehicles and ex-fleet vans</span><span class="liq-guide-b">What trade buyers need to know</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#53a8c7" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+          <li class="liq-guide"><a href="https://www.universalauctionsgroup.com/articles/buying-at-auction-for-resale-how-traders-find-margin"><span><span class="liq-guide-t">Buying at auction for resale</span><span class="liq-guide-b">How traders work out their margin</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#53a8c7" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="liq-guidecol-k">For sellers</p>
+          <ul class="liq-guides">
+          <li class="liq-guide"><a href="https://www.universalauctionsgroup.com/articles/fleet-of-vans-and-trucks-at-auction-commercial-vehicle-disposal"><span><span class="liq-guide-t">Selling vans and trucks at auction</span><span class="liq-guide-b">Commercial vehicle disposal for businesses</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#53a8c7" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+          <li class="liq-guide"><a href="https://www.universalauctionsgroup.com/articles/selling-business-equipment-at-auction-a-guide-for-owners-administrators-and-ips"><span><span class="liq-guide-t">Selling business equipment at auction</span><span class="liq-guide-b">For owners, administrators and insolvency practitioners</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#53a8c7" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+          <li class="liq-guide"><a href="https://www.universalauctionsgroup.com/articles/forced-sale-value-vs-market-value-what-assets-actually-fetch-at-auction"><span><span class="liq-guide-t">Forced-sale value vs market value</span><span class="liq-guide-b">What assets fetch at auction, and why</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#53a8c7" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+          <li class="liq-guide"><a href="https://www.universalauctionsgroup.com/articles/asset-disposal-in-administration-and-receivership-the-sellers-process"><span><span class="liq-guide-t">Asset disposal in administration and receivership</span><span class="liq-guide-b">The seller's process, step by step</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#53a8c7" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 10. START ===== -->
+  <section class="uag-sec uag-light liq-close" aria-labelledby="start">
+    <div class="uag-in">
+      <div class="uag-duo">
+        <div class="uag-duo-l">
+          <h2 class="uag-h2" id="start">See what is in this week's sales</h2>
+          <p class="uag-answer">Register now and you will be approved and ready before the next van you need comes up.</p>
+          <div class="uag-ctas">
+            <a class="uag-btn" href="https://bid.universalauctions.group/auctions">View current lots</a>
+            <a class="uag-btn uag-btn-ghost" href="https://www.universalauctionsgroup.com/contact">Ask about a lot</a>
+          </div>
+        </div>
+        <div class="uag-duo-r">
+          <p class="uag-body">Looking for something else? Browse by category:</p>
+          <ul class="liq-catbtns">
+            <li><a href="https://www.universalauctionsgroup.com/liquidation-and-insolvency-auctions">Liquidation and insolvency</a></li>
+            <li><a href="https://www.universalauctionsgroup.com/plant-machinery-auctions">Plant and machinery</a></li>
+            <li><a href="https://www.universalauctionsgroup.com/commercial-vehicle-auctions">Commercial vehicles</a></li>
+            <li><a href="https://www.universalauctionsgroup.com/agricultural-machinery-auctions">Agricultural machinery</a></li>
+            <li><a href="https://www.universalauctionsgroup.com/catering-equipment-auctions">Catering equipment</a></li>
+          </ul>
+          <p class="uag-body">Selling vans? <a class="uag-inline" href="https://www.universalauctionsgroup.com/contact">Talk to us about a sale</a>.</p>
+          <p class="uag-note">Every sale is governed by the <a class="uag-inline" href="https://www.universalauctionsgroup.com/terms-and-conditions">auction terms and conditions</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

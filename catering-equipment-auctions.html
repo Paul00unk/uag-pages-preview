@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Catering Equipment Auctions UK | Universal Auctions Group</title>
+<meta name="description" content="Trade-only catering equipment auctions online. Bid on ovens, refrigeration, warewashing, prep and bar equipment from UK venues, or sell through us.">
+<link rel="stylesheet" href="uag.css">
+/* Page-local layer for the category-page template. Every rule scoped under .uag-page. */
+.uag-page .uag-ticks + .uag-body{margin-top:24px;}
+/* Two doors under the intro: one for buyers, one for sellers. */
+.uag-page .liq-doors{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.6vw,28px);margin-top:clamp(30px,4vw,46px);}
+.uag-page .liq-door{border:1px solid var(--uag-line);border-top:3px solid var(--uag-cyan);background:#fff;padding:clamp(22px,2.8vw,34px);display:flex;flex-direction:column;}
+.uag-page .liq-door-k{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--uag-cyan-deep);margin:0 0 12px;font-weight:500;}
+.uag-page .liq-door-t{font-size:clamp(19px,1.8vw,22px);letter-spacing:-.02em;line-height:1.3;margin:0 0 10px;}
+.uag-page .liq-door-b{font-size:15px;line-height:1.62;color:var(--uag-steel);margin:0 0 22px;}
+.uag-page .liq-door-links{margin-top:auto;display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px;}
+/* Picture tiles reuse .uag-cats; unlinked tiles keep ink titles. */
+.uag-page .uag-cat-img{height:210px;}
+.uag-page .uag-duo + .uag-cats{margin-top:clamp(24px,3vw,34px);}
+/* Full-bleed background section. */
+.uag-page .liq-bgsec{position:relative;isolation:isolate;overflow:hidden;background:#000;color:#fafafa;padding-top:clamp(80px,10vw,140px);padding-bottom:clamp(64px,8vw,110px);}
+.uag-page .liq-bgsec-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;}
+.uag-page .liq-bgsec::after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.70) 0%,rgba(0,0,0,.76) 55%,rgba(0,0,0,.9) 100%);}
+.uag-page .liq-bgsec .uag-h2,.uag-page .liq-bgsec .uag-answer{color:#fafafa;}
+.uag-page .liq-panels{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:rgba(250,250,250,.16);border:1px solid rgba(250,250,250,.16);margin-top:clamp(28px,4vw,44px);}
+.uag-page .liq-panel{background:rgba(8,12,15,.74);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);padding:clamp(22px,2.4vw,30px);}
+.uag-page .liq-panel-n{display:block;font-size:12px;letter-spacing:.16em;color:var(--uag-cyan);margin:0 0 14px;}
+.uag-page .liq-panel-t{font-size:17px;font-weight:500;color:#fafafa;margin:0 0 8px;letter-spacing:-.01em;}
+.uag-page .liq-panel-b{font-size:14.5px;line-height:1.6;color:#c3cbd2;margin:0;}
+/* Split with stacked steps beside a tall photo. */
+.uag-page .liq-split-top{align-items:start;}
+.uag-page .liq-split-top .uag-media img{max-height:none;aspect-ratio:4/5;}
+.uag-page .liq-steps{margin-top:8px;}
+/* FAQ: heading column beside the accordions. */
+.uag-page .liq-faqgrid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.6fr);gap:clamp(28px,5vw,72px);align-items:start;}
+/* Guides as a two-column index rather than another card grid. */
+.uag-page .liq-guidecols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,64px);margin-top:clamp(24px,3vw,34px);}
+.uag-page .liq-guidecol-k{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--uag-cyan-deep);margin:0 0 12px;font-weight:500;}
+.uag-page .liq-guides{list-style:none;margin:0;padding:0;border-top:1px solid var(--uag-line);}
+.uag-page .liq-guide{border-bottom:1px solid var(--uag-line);}
+.uag-page .liq-guide a{display:grid;grid-template-columns:1fr 22px;gap:16px;align-items:center;padding:18px 0;text-decoration:none;color:inherit;}
+.uag-page .liq-guide-t{display:block;font-size:16.5px;color:var(--uag-cyan-deep);letter-spacing:-.01em;margin:0 0 3px;}
+.uag-page .liq-guide-b{display:block;font-size:14px;color:var(--uag-steel);line-height:1.5;}
+.uag-page .liq-guide svg{transition:transform .18s ease;}
+.uag-page .liq-guide a:hover .liq-guide-t,.uag-page .liq-guide a:focus-visible .liq-guide-t{color:var(--uag-ink);}
+.uag-page .liq-guide a:hover svg{transform:translateX(4px);}
+.uag-page .liq-guide a:focus-visible{outline:2px solid var(--uag-cyan);outline-offset:2px;}
+/* Closing band: categories as real buttons. */
+.uag-page .liq-catbtns{display:flex;flex-wrap:wrap;gap:10px;margin:0;padding:0;list-style:none;}
+.uag-page .liq-catbtns a{display:inline-block;padding:.7rem 1rem;font-size:14.5px;color:var(--uag-ink);text-decoration:none;border:1px solid var(--uag-line);background:#fff;transition:border-color .18s ease,color .18s ease;}
+.uag-page .liq-close{border-top:1px solid var(--uag-line);}
+.uag-page .liq-catbtns a:hover,.uag-page .liq-catbtns a:focus-visible{border-color:var(--uag-cyan);color:var(--uag-cyan-deep);}
+@media (max-width:900px){
+  .uag-page .liq-panels{grid-template-columns:1fr 1fr;}
+  .uag-page .liq-doors{grid-template-columns:1fr;}
+  .uag-page .liq-faqgrid,.uag-page .liq-guidecols{grid-template-columns:1fr;}
+  .uag-page .liq-split-top .uag-media img{aspect-ratio:16/10;}
+}
+@media (max-width:560px){
+  .uag-page .liq-panels{grid-template-columns:1fr;}
+}
+@media (prefers-reduced-motion:reduce){.uag-page .liq-guide svg,.uag-page .liq-catbtns a{transition:none;}}
+</style>
+</head>
+</head>
+<body>
+<div class="uag-page">
+
+  <!-- ===== 1. INTRO ===== -->
+  <section class="uag-sec uag-light" aria-labelledby="intro">
+    <div class="uag-in">
+      <div class="uag-duo">
+        <div class="uag-duo-l">
+          <p class="uag-eyebrow">Commercial kitchen, bar and catering equipment</p>
+          <h2 class="uag-h2" id="intro">Buying or selling catering equipment at auction</h2>
+        </div>
+        <div class="uag-duo-r">
+          <p class="uag-answer">Universal Auctions Group runs trade-only catering equipment auctions online for commercial kitchen, restaurant, pub, hotel and bar equipment located across the UK. Trade buyers bid from anywhere in the UK or overseas, and the equipment stays at the premises until it is sold and paid for.</p>
+        </div>
+      </div>
+      <div class="liq-doors">
+        <div class="liq-door">
+          <p class="liq-door-k">Buying</p>
+          <p class="liq-door-t">Cooking lines, refrigeration, warewashing, prep and bar equipment</p>
+          <p class="liq-door-b">Sold in trade-only timed online auctions. Registration is free and you bid from the office, the pass or your phone.</p>
+          <div class="liq-door-links"><a class="uag-btn" href="https://bid.universalauctions.group/auctions">View current lots</a><a class="uag-link" href="#how">How buying works</a></div>
+        </div>
+        <div class="liq-door">
+          <p class="liq-door-k">Selling</p>
+          <p class="liq-door-t">For restaurant, pub and hotel operators, refitters, dealers and administrators</p>
+          <p class="liq-door-b">Equipment is sold from the venue to trade buyers across the UK and overseas, with a record of the sale for your file.</p>
+          <div class="liq-door-links"><a class="uag-btn uag-btn-ghost" href="https://www.universalauctionsgroup.com/contact">Talk to us about a sale</a><a class="uag-link" href="#sell">How selling works</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 2. WHAT COMES UP ===== -->
+  <section class="uag-sec uag-wash" aria-labelledby="stock">
+    <div class="uag-in">
+      <div class="uag-duo">
+        <div class="uag-duo-l">
+          <h2 class="uag-h2 uag-h2-sm" id="stock">What comes up at our catering equipment auctions</h2>
+        </div>
+        <div class="uag-duo-r">
+          <p class="uag-answer">Anything from a single appliance to the full contents of a kitchen dismantled for sale. These are the categories buyers watch for.</p>
+        </div>
+      </div>
+      <div class="uag-cats">
+        <a class="uag-cat" href="https://www.universalauctionsgroup.com/articles/buying-commercial-catering-equipment-from-business-closures-at-auction">
+          <img class="uag-cat-img" src="img/ce-t-cooking.webp" alt="A stainless cooking suite with solid-top hobs and pans, with an oven behind" width="900" height="600" loading="lazy">
+          <span class="uag-cat-in"><span class="uag-cat-t">Cooking equipment</span><span class="uag-cat-b">Combi, convection and deck ovens, ranges, grills, fryers, induction and gas equipment, hot cupboards and bain-maries.</span></span>
+        </a>
+        <div class="uag-cat">
+          <img class="uag-cat-img" src="img/ce-t-refrigeration.webp" alt="A row of upright double-door stainless fridges in a white-tiled kitchen" width="900" height="600" loading="lazy">
+          <span class="uag-cat-in"><span class="uag-cat-t">Refrigeration and cold rooms</span><span class="uag-cat-b">Upright and counter fridges and freezers, display chillers, blast chillers, walk-in cold rooms and ice machines.</span></span>
+        </div>
+        <div class="uag-cat">
+          <img class="uag-cat-img" src="img/ce-t-warewash.webp" alt="A hood-type pass-through dishwasher with glass racks, a pre-rinse spray and stainless sinks" width="900" height="600" loading="lazy">
+          <span class="uag-cat-in"><span class="uag-cat-t">Warewashing</span><span class="uag-cat-b">Pass-through and undercounter dishwashers, glasswashers and pot washers.</span></span>
+        </div>
+        <div class="uag-cat">
+          <img class="uag-cat-img" src="img/ce-t-prep.webp" alt="Hands fitting a whisk to a large planetary mixer" width="900" height="600" loading="lazy">
+          <span class="uag-cat-in"><span class="uag-cat-t">Preparation and stainless</span><span class="uag-cat-b">Mixers, slicers, food preparation machines, stainless benching, sinks, shelving and gantries.</span></span>
+        </div>
+        <a class="uag-cat" href="https://www.universalauctionsgroup.com/articles/bar-and-pub-equipment-at-auction-what-comes-up-and-what-to-check">
+          <img class="uag-cat-img" src="img/ce-t-bar.webp" alt="A row of copper beer taps with black handles on a bar" width="900" height="600" loading="lazy">
+          <span class="uag-cat-in"><span class="uag-cat-t">Bar and pub equipment</span><span class="uag-cat-b">Back-bar fridges, glasswashers, ice machines, bar fittings and cellar equipment from pubs and bars.</span></span>
+        </a>
+        <div class="uag-cat">
+          <img class="uag-cat-img" src="img/ce-t-coffee.webp" alt="A commercial espresso machine with cups stacked on top and twin coffee grinders" width="900" height="600" loading="lazy">
+          <span class="uag-cat-in"><span class="uag-cat-t">Coffee and front of house</span><span class="uag-cat-b">Espresso machines, water boilers, display counters and service equipment from cafes, restaurants and hotels.</span></span>
+        </div>
+      </div>
+      <p class="uag-body">Kitchens and bars from closing businesses also come up in our <a class="uag-inline" href="https://www.universalauctionsgroup.com/liquidation-and-insolvency-auctions">liquidation and insolvency auctions</a>.</p>
+    </div>
+  </section>
+
+  <!-- ===== 3. WHERE IT COMES FROM ===== -->
+  <section class="uag-sec uag-light" aria-labelledby="source">
+    <div class="uag-in">
+      <div class="uag-split">
+        <figure class="uag-media uag-figure">
+          <img src="img/ce-source.webp" alt="Two chefs in aprons working at an open kitchen counter, with a combi oven behind" width="1600" height="1000" loading="lazy">
+          <figcaption class="uag-cap">Kitchens and bars are sold from the venues where they were used.</figcaption>
+        </figure>
+        <div>
+          <h2 class="uag-h2 uag-h2-sm" id="source">Where the equipment comes from</h2>
+          <p class="uag-answer">Restaurant closures and lease exits, pub disposals, hotel kitchen and bar refits, dark kitchen wind-downs, contract catering changes, dealers and insolvency sales.</p>
+          <p class="uag-body">That mix means one sale can carry a single appliance from a refit beside the whole kitchen of a closed restaurant.</p>
+          <p class="uag-body">Where the seller supplies them, listings include the make, model, dimensions, electrical phase and gas type, along with photographs and any known issues.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 4. WHY BUYERS USE THEM ===== -->
+  <section class="uag-sec liq-bgsec" aria-labelledby="why">
+    <img class="liq-bgsec-img" src="img/ce-bg.webp" alt="" aria-hidden="true" loading="lazy">
+    <div class="uag-in">
+      <p class="uag-eyebrow">For trade buyers</p>
+      <h2 class="uag-h2" id="why">Why caterers and kitchen fitters buy at auction</h2>
+      <p class="uag-answer">Because commercial equipment comes up in quantity, the price is set by open bidding, and a kitchen can be fitted out from one sale.</p>
+      <div class="liq-panels">
+        <div class="liq-panel">
+          <span class="liq-panel-n">01</span>
+          <p class="liq-panel-t">A whole kitchen in one sale</p>
+          <p class="liq-panel-b">When a venue closes, its cooking line, refrigeration, warewashing and benching can sell as lots in the same auction, so you fit out from one place.</p>
+        </div>
+        <div class="liq-panel">
+          <span class="liq-panel-n">02</span>
+          <p class="liq-panel-t">The price is set by the bidding</p>
+          <p class="liq-panel-b">Every lot is open to every registered trade buyer, and you can see the bidding as it happens. There is no asking price to negotiate.</p>
+        </div>
+        <div class="liq-panel">
+          <span class="liq-panel-n">03</span>
+          <p class="liq-panel-t">Every size of operation</p>
+          <p class="liq-panel-b">From a single fridge for a cafe to a full line for a new site, the lots cover every size of kitchen and bar.</p>
+        </div>
+        <div class="liq-panel">
+          <span class="liq-panel-n">04</span>
+          <p class="liq-panel-t">Trade-only, online, from anywhere</p>
+          <p class="liq-panel-b">You bid against other businesses, between services or after close, wherever the equipment happens to be.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 5. HOW BUYING WORKS ===== -->
+  <section class="uag-sec uag-light" aria-labelledby="how">
+    <div class="uag-in">
+      <div class="uag-split liq-split-top">
+        <figure class="uag-media uag-figure">
+          <img src="img/ce-bidding.webp" alt="Three cafe staff in aprons working around a laptop at a cafe table" width="1600" height="1000" loading="lazy">
+          <figcaption class="uag-cap">Every sale runs online, so you can bid between services.</figcaption>
+        </figure>
+        <div>
+          <h2 class="uag-h2 uag-h2-sm" id="how">How buying at a catering equipment auction works</h2>
+          <p class="uag-answer">Four steps, from registering to collecting what you have won.</p>
+          <ol class="uag-steps liq-steps">
+            <li class="uag-step">
+              <div>
+                <p class="uag-step-t">Register to bid</p>
+                <p class="uag-step-b">Registration is free. Manual approval and identification may be required before an account can bid, so register ahead of the sale you are watching.</p>
+              </div>
+            </li>
+            <li class="uag-step">
+              <div>
+                <p class="uag-step-t">Read the lot and set your maximum</p>
+                <p class="uag-step-b">Each lot carries the seller's description and photographs, with make, model, dimensions and power or gas type where supplied, its VAT treatment, and the buyer's premium on its Additional Fees tab. Add them up and decide your ceiling before the lot closes.</p>
+              </div>
+            </li>
+            <li class="uag-step">
+              <div>
+                <p class="uag-step-t">Bid in the timed online auction</p>
+                <p class="uag-step-b">Bidding normally remains open for several days, with the exact opening and closing times stated for each auction. In our current timed-auction format, a bid in the last ten minutes extends that lot by ten minutes, so nobody wins on the buzzer.</p>
+              </div>
+            </li>
+            <li class="uag-step">
+              <div>
+                <p class="uag-step-t">Pay and collect</p>
+                <p class="uag-step-b">We invoice you after the sale, payable in full by bank transfer within 24 hours. Once your payment clears we release the collection details, and you collect from the stated location by appointment.</p>
+              </div>
+            </li>
+          </ol>
+          <p class="uag-note">The full buying process, costs and collection are on the <a class="uag-inline" href="https://www.universalauctionsgroup.com/buying">buying page</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 6. BEFORE YOU BID ===== -->
+  <section class="uag-sec uag-dark" aria-labelledby="site">
+    <div class="uag-in">
+      <div class="uag-split uag-split-r">
+        <div>
+          <p class="uag-eyebrow">Before you bid</p>
+          <h2 class="uag-h2 uag-h2-sm" id="site">Plan the disconnection, the move and the recommissioning</h2>
+          <p class="uag-answer">Catering equipment is often still installed when it sells. Price the removal and the engineer's visit into your bid alongside the hammer price.</p>
+          <p class="uag-body">Check the dimensions against your doors, stairs and lifts, and the power, gas, water and drainage each item needs at your site. Gas appliances need a Gas Safe registered engineer to disconnect and reconnect them, and refrigeration may need a specialist to remove it safely. Plan the electrical and safety checks appropriate to each item before it goes back into commercial use.</p>
+          <p class="uag-body">Collection is by appointment after cleared payment, and the buyer arranges the labour and lifting. Buyers are responsible for arranging collection and transport. Any delivery option specifically stated within a lot is provided by the seller and subject to separate agreement.</p>
+          <div class="uag-ctas">
+            <a class="uag-btn uag-btn-ghost" href="https://www.universalauctionsgroup.com/contact">Ask about a lot</a>
+          </div>
+        </div>
+        <figure class="uag-media uag-figure">
+          <img src="img/ce-collection.webp" alt="Two men loading an upright fridge into the back of a removal lorry" width="1600" height="1000" loading="lazy">
+          <figcaption class="uag-cap">Bring the labour and the trolleys, and book the collection slot.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 7. SELLING ===== -->
+  <section class="uag-sec uag-wash" aria-labelledby="sell">
+    <div class="uag-in">
+      <div class="uag-split">
+        <figure class="uag-media uag-figure">
+          <img src="img/ce-seller.webp" alt="Wooden chairs upside down on a table in a closed bar, with bar stools and a brick counter behind" width="1600" height="1000" loading="lazy">
+          <figcaption class="uag-cap">From one appliance to a full kitchen and bar, equipment is sold from the venue.</figcaption>
+        </figure>
+        <div>
+          <p class="uag-eyebrow">For sellers</p>
+          <h2 class="uag-h2 uag-h2-sm" id="sell">Selling catering equipment through us</h2>
+          <p class="uag-answer">We run online sales for restaurant, pub and hotel operators, landlords, refitters, dealers and administrators, and every lot is open to trade buyers across the UK and overseas.</p>
+          <ul class="uag-ticks">
+            <li class="uag-tick">
+              <span class="uag-tick-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#53a8c7" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+              <div><p class="uag-tick-t">Sold from the venue</p><p class="uag-tick-b">The equipment stays where it is. Buyers collect by appointment once they have paid, so nothing has to be moved to an auction site first.</p></div>
+            </li>
+            <li class="uag-tick">
+              <span class="uag-tick-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#53a8c7" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+              <div><p class="uag-tick-t">Paid before anything leaves</p><p class="uag-tick-b">Collection is authorised only after the buyer has paid, and the seller is ordinarily paid within 24 hours of our receiving cleared funds.</p></div>
+            </li>
+            <li class="uag-tick">
+              <span class="uag-tick-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#53a8c7" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+              <div><p class="uag-tick-t">A record for the file</p><p class="uag-tick-b">Lot-by-lot results and the marketing and bidding record of the sale, within what confidentiality and data protection allow.</p></div>
+            </li>
+          </ul>
+          <p class="uag-body">How a sale is set up, and what it costs, are on our pages for sellers: <a class="uag-inline" href="https://www.universalauctionsgroup.com/why-sell-with-uag">why sell with us</a>, <a class="uag-inline" href="https://www.universalauctionsgroup.com/sell-with-us">how selling works</a> and <a class="uag-inline" href="https://www.universalauctionsgroup.com/asset-disposal">asset disposal for administrators and receivers</a>.</p>
+          <div class="uag-ctas">
+            <a class="uag-btn" href="https://www.universalauctionsgroup.com/contact">Talk to us about a sale</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 8. FAQ ===== -->
+  <section class="uag-sec uag-light" aria-labelledby="faq">
+    <div class="uag-in">
+      <div class="liq-faqgrid">
+        <div>
+          <h2 class="uag-h2 uag-h2-sm" id="faq">Catering equipment auction questions</h2>
+          <p class="uag-body">The questions buyers and sellers ask before their first catering sale. For anything else, get in touch.</p>
+          <div class="uag-ctas">
+            <a class="uag-btn uag-btn-ghost" href="https://www.universalauctionsgroup.com/contact">Contact us</a>
+          </div>
+        </div>
+        <div class="uag-faq">
+          <details>
+            <summary>What is a catering equipment auction?<span class="uag-sign" aria-hidden="true"></span></summary>
+            <p class="uag-faq-a">A sale of commercial kitchen, bar and catering equipment by open bidding. At Universal Auctions Group these run as trade-only timed online auctions, so registered business buyers bid remotely and the highest bid at the close wins the lot.</p>
+          </details>
+          <details>
+            <summary>Does catering equipment come with gas or electrical certificates?<span class="uag-sign" aria-hidden="true"></span></summary>
+            <p class="uag-faq-a">Not as standard. Any service, testing or working-status information is supplied by the seller and shown in the lot description where available. Treat each item as needing the checks appropriate to its type, and have gas appliances connected and commissioned by a Gas Safe registered engineer.</p>
+          </details>
+          <details>
+            <summary>Can I buy the contents of a whole kitchen?<span class="uag-sign" aria-hidden="true"></span></summary>
+            <p class="uag-faq-a">Yes, where a venue's equipment is offered in the same auction you can bid on as many lots as you need. Each lot is a separate bid, so set a maximum for each, and check the collection details for the site.</p>
+          </details>
+          <details>
+            <summary>Who can buy at a catering auction?<span class="uag-sign" aria-hidden="true"></span></summary>
+            <p class="uag-faq-a">Any business that registers to bid. All our auctions are trade-only, so you register and bid in a business capacity. Overseas trade buyers are welcome to participate. Manual approval and identification may be required before an account can bid.</p>
+          </details>
+          <details>
+            <summary>What will a lot cost me on top of the hammer price?<span class="uag-sign" aria-hidden="true"></span></summary>
+            <p class="uag-faq-a">The buyer's premium, at the rate shown on the lot's Additional Fees tab, and VAT where it applies to that lot, which the lot description states. Collection and transport are yours to arrange, so allow for them in your maximum bid.</p>
+          </details>
+          <details>
+            <summary>How quickly do I have to pay and collect?<span class="uag-sign" aria-hidden="true"></span></summary>
+            <p class="uag-faq-a">Payment is due in full by bank transfer within 24 hours of the invoice. Collection is by appointment once your payment has cleared, within the period stated in that sale's terms. Equipment may still be installed, so confirm access and disconnection before you bid.</p>
+          </details>
+          <details>
+            <summary>Can I sell catering equipment through you?<span class="uag-sign" aria-hidden="true"></span></summary>
+            <p class="uag-faq-a">Yes. We run sales for restaurant, pub and hotel operators, landlords, refitters, dealers and administrators, from a single appliance to a full kitchen and bar. The equipment is sold from the venue and buyers collect after paying. Talk to us about what you have and your timetable.</p>
+          </details>
+          <details>
+            <summary>Is catering equipment sold with a warranty?<span class="uag-sign" aria-hidden="true"></span></summary>
+            <p class="uag-faq-a">Lots are sold as seen, where lying. Descriptions and photographs come from the seller, so form your own view of each item, and ask us for anything else you need while the lot is still open.</p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 9. GUIDES ===== -->
+  <section class="uag-sec uag-wash" aria-labelledby="guides">
+    <div class="uag-in">
+      <h2 class="uag-h2 uag-h2-sm" id="guides">Guides for buyers and sellers</h2>
+      <div class="liq-guidecols">
+        <div>
+          <p class="liq-guidecol-k">For buyers</p>
+          <ul class="liq-guides">
+          <li class="liq-guide"><a href="https://www.universalauctionsgroup.com/articles/buying-commercial-catering-equipment-from-business-closures-at-auction"><span><span class="liq-guide-t">Catering equipment from business closures</span><span class="liq-guide-b">What comes out of closed kitchens and what to check</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#53a8c7" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+          <li class="liq-guide"><a href="https://www.universalauctionsgroup.com/articles/bar-and-pub-equipment-at-auction-what-comes-up-and-what-to-check"><span><span class="liq-guide-t">Bar and pub equipment at auction</span><span class="liq-guide-b">What comes up and what to check</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#53a8c7" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+          <li class="liq-guide"><a href="https://www.universalauctionsgroup.com/articles/judging-machine-condition-from-photographs-when-you-cannot-view"><span><span class="liq-guide-t">Judging condition from photographs</span><span class="liq-guide-b">Reading a listing when you cannot see the lot</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#53a8c7" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+          <li class="liq-guide"><a href="https://www.universalauctionsgroup.com/articles/the-real-cost-of-buying-at-auction-hammer-price-buyers-premium-and-vat"><span><span class="liq-guide-t">The real cost of buying at auction</span><span class="liq-guide-b">Hammer price, buyer's premium and VAT</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#53a8c7" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="liq-guidecol-k">For sellers</p>
+          <ul class="liq-guides">
+          <li class="liq-guide"><a href="https://www.universalauctionsgroup.com/articles/selling-business-equipment-at-auction-a-guide-for-owners-administrators-and-ips"><span><span class="liq-guide-t">Selling business equipment at auction</span><span class="liq-guide-b">For owners, administrators and insolvency practitioners</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#53a8c7" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+          <li class="liq-guide"><a href="https://www.universalauctionsgroup.com/articles/business-liquidators-vs-auctioneers-who-does-what-when-company-assets-must-be-sold"><span><span class="liq-guide-t">Business liquidators vs auctioneers</span><span class="liq-guide-b">Who does what when company assets have to be sold</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#53a8c7" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+          <li class="liq-guide"><a href="https://www.universalauctionsgroup.com/articles/asset-disposal-in-administration-and-receivership-the-sellers-process"><span><span class="liq-guide-t">Asset disposal in administration and receivership</span><span class="liq-guide-b">The seller's process, step by step</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#53a8c7" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+          <li class="liq-guide"><a href="https://www.universalauctionsgroup.com/articles/forced-sale-value-vs-market-value-what-assets-actually-fetch-at-auction"><span><span class="liq-guide-t">Forced-sale value vs market value</span><span class="liq-guide-b">What assets fetch at auction, and why</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#53a8c7" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 10. START ===== -->
+  <section class="uag-sec uag-light liq-close" aria-labelledby="start">
+    <div class="uag-in">
+      <div class="uag-duo">
+        <div class="uag-duo-l">
+          <h2 class="uag-h2" id="start">See what is in this week's sales</h2>
+          <p class="uag-answer">Register now and you will be approved and ready before the equipment you need comes up.</p>
+          <div class="uag-ctas">
+            <a class="uag-btn" href="https://bid.universalauctions.group/auctions">View current lots</a>
+            <a class="uag-btn uag-btn-ghost" href="https://www.universalauctionsgroup.com/contact">Ask about a lot</a>
+          </div>
+        </div>
+        <div class="uag-duo-r">
+          <p class="uag-body">Looking for something else? Browse by category:</p>
+          <ul class="liq-catbtns">
+            <li><a href="https://www.universalauctionsgroup.com/liquidation-and-insolvency-auctions">Liquidation and insolvency</a></li>
+            <li><a href="https://www.universalauctionsgroup.com/plant-machinery-auctions">Plant and machinery</a></li>
+            <li><a href="https://www.universalauctionsgroup.com/commercial-vehicle-auctions">Commercial vehicles</a></li>
+            <li><a href="https://www.universalauctionsgroup.com/ex-fleet-vans">Ex-fleet vans</a></li>
+            <li><a href="https://www.universalauctionsgroup.com/agricultural-machinery-auctions">Agricultural machinery</a></li>
+          </ul>
+          <p class="uag-body">Selling a kitchen, a bar or a single appliance? <a class="uag-inline" href="https://www.universalauctionsgroup.com/contact">Talk to us about a sale</a>.</p>
+          <p class="uag-note">Every sale is governed by the <a class="uag-inline" href="https://www.universalauctionsgroup.com/terms-and-conditions">auction terms and conditions</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
